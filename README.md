@@ -11,7 +11,8 @@ Video Gen · Agent Harness</h3>
 <h3>
 <a href="https://github.com/openclaw/openclaw">OpenClaw</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> — <a href="https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw">1 merged</a><br>
 <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> — <a href="https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent">3 adopted</a><br>
-<a href="https://github.com/Hisn00w/ASu-skills">ASu-skills</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.png" width="20" height="20" alt="ASu-skills logo"> — <a href="https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills">2 merged</a>
+<a href="https://github.com/Hisn00w/ASu-skills">ASu-skills</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.png" width="20" height="20" alt="ASu-skills logo"> — <a href="https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills">2 merged</a><br>
+…
 </h3>
 <!-- contributions:end -->
 

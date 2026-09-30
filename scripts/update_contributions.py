@@ -321,7 +321,7 @@ def render(config, branch, snapshots):
                     if key in record:
                         details.append(f'  - [{label}]({url}): “{markdown(record[key])}”')
         details.append("")
-    block = "<h3>\n" + "<br>\n".join(lines) + "\n</h3>" if lines else ""
+    block = "<h3>\n" + "<br>\n".join(lines) + "<br>\n…\n</h3>" if lines else ""
     return block, "\n".join(details).rstrip() + "\n"
 
 
