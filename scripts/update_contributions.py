@@ -298,7 +298,7 @@ def render(config, branch, snapshots):
             stars = metadata["stargazers_count"]
             star_text = f"~{(stars + 500) // 1000}k" if stars >= 1000 else str(stars)
             star_label = f" <sub>({star_text}&nbsp;⭐)</sub>" if config["show_stars"] else ""
-            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo} — [{" · ".join(counts)}]({target}){star_label}')
+            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo}{star_label} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":
             details.extend([f"{count} adopted commit{'s' if count != 1 else ''} from {len(adopted)} source PR{'s' if len(adopted) != 1 else ''} (distinct verified landing commits).", ""])

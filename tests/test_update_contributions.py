@@ -305,7 +305,8 @@ class FixtureTests(unittest.TestCase):
                 api.data[f"/repos/{REPO}"]["stargazers_count"] = stars
                 readme = self.run_generator(api)[self.root / "README.md"].replace("&nbsp;", " ")
                 self.assertIn(label, readme)
-                self.assertGreater(readme.index(label), readme.index("1 merged]"))
+                self.assertGreater(readme.index(label), readme.index('alt="Project logo">'))
+                self.assertLess(readme.index(label), readme.index("1 merged]"))
 
     def test_shown_stars_only_write_when_display_changes(self):
         self.config["show_stars"] = True
