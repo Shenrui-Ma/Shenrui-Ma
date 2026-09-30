@@ -1,6 +1,6 @@
 # Official logo sources
 
-Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu avatar is the owner-supplied WEBP displayed through a circular SVG clip; see its current source record below. Contribution-project logos display at 25 × 25 CSS pixels; platform-account logos display at 20 × 20.
+Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu avatar is the owner-supplied WEBP displayed through a circular SVG clip; see its current source record below. Contribution-project and platform-account logos display at the original 20 × 20 CSS pixels.
 
 The commit below identifies the repository revision containing the asset. The separately labeled Git blob SHA identifies file bytes and is not a commit. SHA-256 values apply to the local copies.
 

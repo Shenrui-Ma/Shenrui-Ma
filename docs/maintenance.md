@@ -170,5 +170,5 @@ The current ASu-skills avatar is the owner-supplied `asu-skills.webp`, embedded
 unchanged in `asu-skills.svg` and clipped to a circle. It replaces the earlier
 generated transparency variant; do not restore the old avatar during refreshes.
 
-Contribution-project logos are displayed at 25px via `logo_size`; platform-account
+Contribution-project logos are displayed at 20px via `logo_size`; platform-account
 logos stay at 20px. Star annotations are refreshed together with accepted contributions.
