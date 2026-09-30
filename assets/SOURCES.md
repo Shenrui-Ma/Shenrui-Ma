@@ -41,18 +41,18 @@ canvas. No part is cropped; the academic marks and text geometry are unchanged.
 
 ## Enlarged academic marks
 
-Current display files are `closure-affiliations-logo-gap.svg` and
-`closure-affiliations-wide-right-2.svg`. Both academic marks and their white
-circular backdrops use an exact 2× scale (wide circle diameter about 82px).
+Current display files are `closure-affiliations-marks-150.svg` and
+`closure-affiliations-wide-marks-150.svg`. Both academic marks and their white
+circular backdrops use an exact 1.5× scale (wide circle diameter about 61px).
 Centers are (188,200) and (188,660), preserving their vertical stack. Original
 embedded image bytes and the feather mask remain unchanged. The wide portrait
 is translated to x=304 with its original scale. The compact portrait is fitted
 within the unchanged 1216×1088 canvas using translate(208,93.052632) and
-scale(0.828947368), avoiding clipping beside the larger marks.
+scale(0.828947368), avoiding clipping beside the marks.
 
-- `closure-affiliations-logo-gap.svg` SHA-256: `3040b1fab51a87e1626bd32fc08166116dc71286fc229c179354f1fe4e842ae6`.
+- `closure-affiliations-marks-150.svg` SHA-256: `fc74d9757e318302ad245d3366387def87504d34906be51d00015f8e32dfa541`.
 
-- `closure-affiliations-wide-right-2.svg` SHA-256: `f7c91712f27599e773c27a5f0c19efbbc6bc0f6ee7b132bb36878f3626ec1009`.
+- `closure-affiliations-wide-marks-150.svg` SHA-256: `8fb0eed29d8c9032cb7da2197944236170cb9750da898bfffbe4a1701b8b3eab`.
 
 The UCAS mark is translated 80 source units lower (about 18px on the wide
 layout), increasing the clear vertical gap between the two circular marks.
@@ -61,3 +61,7 @@ The CASIA mark, portrait, logo scales and overall canvas are unchanged.
 The wide portrait receives a further 96 source units of rightward translation
 (about 22px on desktop). The academic marks, portrait scale, feather mask and
 compact layout remain unchanged.
+
+Both academic marks now use 1.5× their original scale (75% of the preceding
+2× version), keeping their centers at (188,200) and (188,660). Portrait
+transforms and the containing canvases are unchanged.
