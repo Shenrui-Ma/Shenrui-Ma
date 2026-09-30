@@ -2,8 +2,7 @@
 
 <picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-feathered.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-feathered.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-profile-wide.svg" width="460" hspace="16" alt="Closure character illustration"></picture>
 
-<h3>AI Master’s @ CASIA<br>
-Video Gen · Agent Harness</h3>
+<h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Self-Evolution</h3>
 
 ### contributions
 
@@ -22,7 +21,7 @@ Video Gen · Agent Harness</h3>
 
 <h3>
 
-- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k downloads
+- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k ↓
 
 </h3>
 
