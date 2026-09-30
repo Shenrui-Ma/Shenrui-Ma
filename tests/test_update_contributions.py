@@ -102,7 +102,7 @@ class FixtureTests(unittest.TestCase):
     def test_two_commits_one_adopted(self):
         self.config = configuration([mapping()])
         result = self.run_generator(FakeAPI(adoptions=True))
-        self.assertIn("1 adopted]", result[self.root / "README.md"])
+        self.assertIn("1 🍒picked]", result[self.root / "README.md"])
         self.assertNotIn(" merged", result[self.root / "README.md"])
         self.assertIn(SHA1[:12], result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn(SHA2[:12], result[self.root / "CONTRIBUTIONS.md"])
@@ -116,17 +116,17 @@ class FixtureTests(unittest.TestCase):
         api.data[f"/repos/{REPO}/commits/{'d' * 40}"] = {"sha": "d" * 40, "author": {"login": "Person"}}
         api.data[f"/repos/{REPO}/compare/{'d' * 40}...{HEAD}"] = dict(api.data[f"/repos/{REPO}/compare/{SHA1}...{HEAD}"], base_commit={"sha": "d" * 40}, merge_base_commit={"sha": "d" * 40})
         default = self.run_generator(api)
-        self.assertIn("2 adopted]", default[self.root / "README.md"])
+        self.assertIn("2 🍒picked]", default[self.root / "README.md"])
         self.config["repositories"][0]["adopted_unit"] = "commits"
         result = self.run_generator(api)
-        self.assertIn("3 adopted]", result[self.root / "README.md"])
+        self.assertIn("3 🍒picked]", result[self.root / "README.md"])
         self.assertIn("3 adopted commits from 2 source PRs", result[self.root / "CONTRIBUTIONS.md"])
         other["landing_commits"] = [SHA1]  # Shared commit is counted once across original PRs.
         result = self.run_generator(api)
-        self.assertIn("2 adopted]", result[self.root / "README.md"])
+        self.assertIn("2 🍒picked]", result[self.root / "README.md"])
         api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
         result = self.run_generator(api)
-        self.assertIn("1 merged · 1 adopted]", result[self.root / "README.md"])
+        self.assertIn("1 merged · 1 🍒picked]", result[self.root / "README.md"])
         self.assertIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
 
     def test_later_merge_deduplicates_and_handles_search_index_lag(self):

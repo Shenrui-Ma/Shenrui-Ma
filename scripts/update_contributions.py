@@ -288,7 +288,7 @@ def render(config, branch, snapshots):
         repo, metadata = snapshot["config"], snapshot["metadata"]
         merged, adopted = snapshot["merged"], snapshot["adopted"]
         count, unit = adopted_count(snapshot)
-        counts = [f"{number} {kind}" for kind, number in (("merged", len(merged)), ("adopted", count)) if number]
+        counts = [f"{number} {kind}" for kind, number in (("merged", len(merged)), ("🍒picked", count)) if number]
         if counts:
             raw = f"https://raw.githubusercontent.com/{urllib.parse.quote(profile, safe='/')}/{branch_path}/"
             logo = f'<img src="{raw}{urllib.parse.quote(repo["logo"], safe="/")}" width="{config["logo_size"]}" height="{config["logo_size"]}" alt="{html.escape(repo["display_name"] + " logo", quote=True)}">'
