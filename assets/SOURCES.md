@@ -19,7 +19,7 @@
 
 ## Academic marks within the existing transparent area
 
-`closure-affiliations.svg` and `closure-affiliations-wide.svg` preserve the respective
+`closure-affiliations-round.svg` and `closure-affiliations-wide-round.svg` preserve the respective
 original canvas, character image, and feather mask exactly. They place the original CASIA and UCAS logo bytes within the same x=8..188 strip: CASIA has a white circular backdrop centered at (98,170) with radius 89 and
 its complete original mark inset to 124 × 122.96; UCAS occupies y=340..520
 in the character’s 1216 × 1088 coordinate space. These rectangles were verified to
@@ -29,6 +29,6 @@ Both displays have white circular backdrops for dark-mode contrast; the original
 and brand colors are unchanged. Individual sources and usage statements are in
 `logos/SOURCES.md`.
 
-- `closure-affiliations.svg` SHA-256: `d77d766d680dbd243fe8fd22d78820d65c44294c00b8aace54ff91e3c9548778`.
+- `closure-affiliations-round.svg` SHA-256: `d77d766d680dbd243fe8fd22d78820d65c44294c00b8aace54ff91e3c9548778`.
 
-- `closure-affiliations-wide.svg` SHA-256: `24c415ff4b773d21005ddff311ed4298e5f78a4d5cfb51ab2f702e82a0182ad0`.
+- `closure-affiliations-wide-round.svg` SHA-256: `24c415ff4b773d21005ddff311ed4298e5f78a4d5cfb51ab2f702e82a0182ad0`.
