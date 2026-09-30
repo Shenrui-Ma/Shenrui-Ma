@@ -99,12 +99,12 @@ the next run starts from the latest default-branch head.
 
 ## Edit text or logos
 
-The `models` section links to the owner's Civitai profile. Its follower and download
-figures are a manually verified snapshot, outside the GitHub contribution markers.
-The initial figures were 998 followers and a displayed 41.3k downloads. Both display
-as whole thousands rounded half up: `1k followers · 41k downloads`. For future manual
-refreshes use `floor(count / 1000 + 0.5)` and the lowercase `k` suffix. The current
-workflow does not fetch or update Civitai statistics.
+The `models` section links to the owner's Civitai profile and displays downloads
+only; followers are intentionally omitted. The download figure is a manually
+verified snapshot, outside the GitHub contribution markers. The initial displayed
+41.3k downloads rounds to `41k downloads`. For future manual refreshes use
+`floor(count / 1000 + 0.5)` and the lowercase `k` suffix. The current workflow does
+not fetch or update Civitai statistics.
 
 The `social` section links to Bilibili account `12595237` (四倍体果蝇-Ray). Its initial
 verified follower total was 14,270, read from the profile's visible follower-count

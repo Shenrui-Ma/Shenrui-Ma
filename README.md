@@ -19,7 +19,7 @@ Video Gen · Agent Harness</h3>
 ### models
 
 <h3>
-<a href="https://civitai.red/user/Shenrui_Ma">Civitai</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k followers · 41k downloads
+<a href="https://civitai.red/user/Shenrui_Ma">Civitai</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 41k downloads
 </h3>
 
 ### social
