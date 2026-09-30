@@ -295,9 +295,7 @@ def render(config, branch, snapshots):
             if "logo_dark" in repo:
                 logo = f'<picture><source media="(prefers-color-scheme: dark)" srcset="{raw}{urllib.parse.quote(repo["logo_dark"], safe="/")}">{logo}</picture>'
             target = github_url(profile, f"/blob/{branch_path}/CONTRIBUTIONS.md#{repo['anchor']}")
-            name = html.escape(repo["display_name"], quote=True)
-            upstream = html.escape(metadata["html_url"], quote=True)
-            lines.append(f'<a href="{upstream}">{name}</a> {logo} — <a href="{target}">{" · ".join(counts)}</a>')
+            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":
             details.extend([f"{count} adopted commit{'s' if count != 1 else ''} from {len(adopted)} source PR{'s' if len(adopted) != 1 else ''} (distinct verified landing commits).", ""])
@@ -321,7 +319,7 @@ def render(config, branch, snapshots):
                     if key in record:
                         details.append(f'  - [{label}]({url}): “{markdown(record[key])}”')
         details.append("")
-    block = "<h3>\n" + "<br>\n".join(lines) + "<br>\n…\n</h3>" if lines else ""
+    block = "<h3>\n\n" + "\n".join(f"- {line}" for line in lines) + "\n- …\n\n</h3>" if lines else ""
     return block, "\n".join(details).rstrip() + "\n"
 
 

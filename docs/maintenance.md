@@ -143,6 +143,9 @@ biography without waiting for the image height. It is outside the updater region
 Keep the source aspect ratio and transparency; provenance is in `assets/SOURCES.md`.
 The biography reads `Video Gen · Agent Harness`.
 
-The biography and content rows use native `<h3>` groups for a larger, approximately
-20px GitHub font. Section labels remain concise. Contribution generation must keep
-its HTML link escaping and heading wrapper so refreshes preserve this typography.
+The opening heading reads `Hi! 👋I'm Shenrui`. The biography and content rows use
+native `<h3>` groups for larger text. Items under contributions, models, and social
+use Markdown `-` unordered lists, following the referenced profile’s bullet style.
+Keep blank lines inside the heading wrappers so Markdown lists are parsed.
+Contribution generation must retain Markdown escaping and the wrappers so refreshes
+preserve the bullets, typography, and the final ellipsis item.
