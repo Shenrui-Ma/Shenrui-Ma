@@ -16,3 +16,19 @@
 - The root canvas is widened to 2000 × 1088; only transparent space to the right is added. The visible artwork is not stretched, recolored or redrawn.
 - Rendered at 460px wide, the 1216px artwork occupies approximately 280px and sits closer to the text column.
 - SHA-256: `5f25c4d4d7d3f0240baec6bba285d3351bdfd99045c61e2dfea23e26a9e25a68`.
+
+## Academic marks within the existing transparent area
+
+`closure-affiliations.svg` and `closure-affiliations-wide.svg` preserve the respective
+original canvas, character image, and feather mask exactly. They embed the original
+CASIA and UCAS logo bytes at x=8: CASIA occupies y=80..258.49 and UCAS y=340..520
+in the character’s 1216 × 1088 coordinate space. These rectangles were verified to
+contain no opaque character pixels. The wide layout displays each mark at about
+41px. No image width, text boundary, character position, or layout gap is increased.
+The UCAS display has a white circular backdrop for dark-mode contrast; its pixels
+and blue brand color are unchanged. Individual sources and usage statements are in
+`logos/SOURCES.md`.
+
+- `closure-affiliations.svg` SHA-256: `938934a82c5b03793b0fec422eca049de175bdbb7d870d74e036a73e3a469c5d`.
+
+- `closure-affiliations-wide.svg` SHA-256: `d3edf7af054bafaee31bf25a6aeea06576a2844d7c23c0e469e7771943839ba1`.

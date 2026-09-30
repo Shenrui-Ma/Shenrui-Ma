@@ -174,3 +174,25 @@ SOFTWARE.
 - Display file: `xiaohongshu.svg`; original `xiaohongshu.png` is retained.
 - Processing: an SVG rounded-rectangle clip (36px radius on a 180px canvas) wraps the embedded original PNG. Only corner visibility changes; the embedded image bytes, artwork and colors are unchanged. No generative image editing.
 - SVG SHA-256: `c89ff47548eb8ab1483dad1e976a8ce499859d9e3911c0182b7c1797da804a22`.
+
+## CASIA academic identity mark
+
+- Institution: 中国科学院自动化研究所.
+- Official identity page: [CASIA identity source](https://ia.cas.cn/gkjj/xxbs/).
+- Original asset: [official download](https://ia.cas.cn/gkjj/xxbs/201010/W020101028581223717789.jpg).
+- Local file: `casia.jpg`; dimensions: 238 × 236.
+- SHA-256: `74240e44885cfaa7ad12059ac91b8e34ed5366dc8fd15ff43b4bd1dead1e5740`.
+- Processing: None: byte-for-byte downloaded official identity-page image. Original white background retained.
+- The identity page retains institute copyright. No independent asset license is asserted. The original white background is preserved.
+
+## UCAS academic identity mark
+
+- Institution: 中国科学院大学.
+- Official identity page: [UCAS identity source](https://onestop.ucas.edu.cn/home/info/6b9e95dc-5785-4eee-b25f-1f884698cfc3).
+- Original asset: [official download](https://onestop.ucas.edu.cn/Content/Upload/2020/9/1.zip).
+- Local file: `ucas.png`; dimensions: 298 × 298.
+- SHA-256: `76133485b54c6190eaae6d061a7e0a1b2a67f3ba2a49c825824d1e033dc4db34`.
+- Processing: None: exact member bytes extracted from official standard logo archive. Archive filenames decoded from GB18030 after ZIP CP437 presentation; pixels unchanged.
+- Archive member: `中国科学院大学标准Logo下载/国科大标准Logo/中国科学院院徽.png`. The university officially provides this CAS seal in its standard logo archive.
+- The official page retains copyright in the academy/university, requires approval or authorization outside reasonable-use exceptions, and explicitly mentions personal study and classroom teaching. No separate license or university approval is asserted here. See the linked source statement. The mark identifies the owner-supplied academic affiliation; it is not an endorsement claim.
+- Display backdrop: a white circle behind the unchanged transparent image keeps the original blue seal readable on dark backgrounds.
