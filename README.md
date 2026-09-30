@@ -21,7 +21,7 @@
 
 <h3>
 
-- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k ⬇️
+- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> <sub>1k&nbsp;👤 · 41k&nbsp;⬇️</sub>
 
 </h3>
 
@@ -29,7 +29,7 @@
 
 <h3>
 
-- [Bilibili](https://space.bilibili.com/12595237) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/bilibili.png" width="20" height="20" alt="Bilibili logo"> — 14k 👤
+- [Bilibili](https://space.bilibili.com/12595237) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/bilibili.png" width="20" height="20" alt="Bilibili logo"> <sub>14k&nbsp;👤</sub>
 - [Rednote](https://www.xiaohongshu.com/user/profile/6871d21d000000001b02205c) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/xiaohongshu.svg" width="20" height="20" alt="Rednote logo">
 
 </h3>
