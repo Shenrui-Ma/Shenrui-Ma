@@ -6,7 +6,7 @@
 - Display file: `closure-feathered.svg`, embedding those exact PNG bytes and applying a vector opacity mask. No generation, redrawing, recoloring or face smoothing.
 - Display SHA-256: `00919fbc92b8cd3d3c1fbe3a9e4c46020021099d1116609b132caf5b868b4517`.
 - Mask: ellipse radii 62% × 60%, center 50% × 38%; opacity stops 0%/1, 68%/1, 76%/0.94, 86%/0.62, 95%/0.18, 100%/0. This is equivalent to the owner's CSS radial-gradient mask; white controls mask luminance without tinting the artwork.
-- Responsive display: the compact variant is 128px at 481–600px and 104px at 480px or below. The wide variant renders the same approximately 280px artwork inside a 460px transparent canvas, moving the visible portrait about 180px inward rather than against the far-right edge. A 16px horizontal inset is retained.
+- Responsive display: the compact variant is 128px at 481–600px and 104px at 480px or below. The wide variant renders the same approximately 280px artwork inside a 460px transparent canvas, moving the visible portrait about 180px inward rather than against the far-right edge. GitHub supplies 20px of left padding; no additional horizontal inset is used.
 - The source image is not overwritten. Edit the SVG gradient stops to adjust feathering; original pixels remain intact.
 - This provenance record does not assert ownership or a new license for the artwork.
 
@@ -38,3 +38,18 @@ The wide portrait is translated 48 source units right (about 11px at display
 size). In the compact variant it is translated right and uniformly scaled by
 0.960526316 about its vertical center to keep the full artwork within the same
 canvas. No part is cropped; the academic marks and text geometry are unchanged.
+
+## Enlarged academic marks
+
+Current display files are `closure-affiliations-large-marks.svg` and
+`closure-affiliations-wide-large-marks.svg`. Both academic marks and their white
+circular backdrops use an exact 2× scale (wide circle diameter about 82px).
+Centers are (188,200) and (188,580), preserving their vertical stack. Original
+embedded image bytes and the feather mask remain unchanged. The wide portrait
+is translated to x=208 with its original scale. The compact portrait is fitted
+within the unchanged 1216×1088 canvas using translate(208,93.052632) and
+scale(0.828947368), avoiding clipping beside the larger marks.
+
+- `closure-affiliations-large-marks.svg` SHA-256: `210632917732e19368a57cbbea788570739bc748131a16d2fe223f3d3c234928`.
+
+- `closure-affiliations-wide-large-marks.svg` SHA-256: `f6c5bf8f37f176138de7b6aebc5dc3bd1ad3bc6df00ba864c9b426b168e8db44`.

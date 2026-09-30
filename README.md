@@ -2,7 +2,7 @@
 
 <h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Self-Evolution</h3>
 
-<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-spaced.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-spaced.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-wide-spaced.svg" width="460" hspace="0" alt="CASIA and UCAS logos beside Closure"></picture>
+<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-large-marks.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-large-marks.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-wide-large-marks.svg" width="460" hspace="0" alt="CASIA and UCAS logos beside Closure"></picture>
 
 ### 📜 Contributions
 
