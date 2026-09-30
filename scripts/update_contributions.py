@@ -52,8 +52,8 @@ def validate_config(config, root):
     require(isinstance(config["username"], str) and re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})", config["username"]), "Invalid username")
     require(isinstance(config["profile_repository"], str) and REPO.fullmatch(config["profile_repository"]), "Invalid profile_repository")
     require(config["profile_repository"].lower() == "/".join([config["username"].lower()] * 2), "Profile must be the user's same-name repository")
-    require(config["sort_by"] == "stars_desc" and config["show_stars"] is False, "Only stars_desc with hidden stars is supported")
-    require(type(config["logo_size"]) is int and 18 <= config["logo_size"] <= 22, "logo_size must be 18–22")
+    require(config["sort_by"] == "stars_desc" and type(config["show_stars"]) is bool, "Use stars_desc and a boolean show_stars")
+    require(type(config["logo_size"]) is int and 18 <= config["logo_size"] <= 25, "logo_size must be 18–25")
     require(isinstance(config["repositories"], list) and config["repositories"], "No repositories configured")
     repositories, anchors = set(), set()
     for repo in config["repositories"]:
@@ -295,7 +295,10 @@ def render(config, branch, snapshots):
             if "logo_dark" in repo:
                 logo = f'<picture><source media="(prefers-color-scheme: dark)" srcset="{raw}{urllib.parse.quote(repo["logo_dark"], safe="/")}">{logo}</picture>'
             target = github_url(profile, f"/blob/{branch_path}/CONTRIBUTIONS.md#{repo['anchor']}")
-            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo} — [{" · ".join(counts)}]({target})')
+            stars = metadata["stargazers_count"]
+            star_text = f"~{(stars + 500) // 1000}k" if stars >= 1000 else str(stars)
+            star_label = f" <sub>({star_text}&nbsp;⭐)</sub>" if config["show_stars"] else ""
+            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo} — [{" · ".join(counts)}]({target}){star_label}')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":
             details.extend([f"{count} adopted commit{'s' if count != 1 else ''} from {len(adopted)} source PR{'s' if len(adopted) != 1 else ''} (distinct verified landing commits).", ""])

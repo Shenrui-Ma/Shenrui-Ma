@@ -41,7 +41,12 @@ unique verified landing commits instead of original adopted PRs.
 Homepage labels stay short (`merged` / `adopted`); the details file explains the units. Only Hermes currently uses this explicit owner choice.
 Verify and record the logo's provenance
 in `assets/logos/SOURCES.md` before adding it. Counts are discovered from GitHub;
-do not add a count field. Actual star integers determine order, but are not displayed.
+do not add a count field. Actual star integers determine order. With `show_stars: true`, each row also shows
+a small trailing star annotation such as `(~391k ⭐)`, rounded half up to whole
+thousands. Non-breaking spacing keeps the count and star together.
+Counts below 1,000 are shown exactly. Every refresh reads `stargazers_count` from
+GitHub; no manual star totals or timestamps are stored in the profile. A raw count
+change within the same displayed thousand does not itself cause a commit.
 Only configured upstream repositories are queried. A user's fork is not an upstream.
 
 ## Record an adopted PR
@@ -159,3 +164,6 @@ statements. The logos are not regenerated or recolored.
 The current ASu-skills avatar is the owner-supplied `asu-skills.webp`, embedded
 unchanged in `asu-skills.svg` and clipped to a circle. It replaces the earlier
 generated transparency variant; do not restore the old avatar during refreshes.
+
+Contribution-project logos are displayed at 25px via `logo_size`; platform-account
+logos stay at 20px. Star annotations are refreshed together with accepted contributions.

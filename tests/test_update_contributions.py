@@ -255,13 +255,14 @@ class FixtureTests(unittest.TestCase):
             self.assertEqual((self.root / "README.md").read_text(), value)
 
     def test_encoding_logo_order_and_theme(self):
+        self.config["logo_size"] = 25
         self.config["repositories"][0].update(display_name='X [bad](url) <script> & "', logo_dark="assets/logos/project.png")
         api = FakeAPI([pr()])
         api.data[f"/repos/{REPO}/pulls/1"]["title"] = "<script>alert(1)</script> [click](https://evil.invalid)\n# heading"
         result = self.run_generator(api)
         readme = result[self.root / "README.md"]
         self.assertLess(readme.index("]("), readme.index("<picture>"))
-        self.assertIn('width="18" height="18"', readme)
+        self.assertIn('width="25" height="25"', readme)
         self.assertIn('media="(prefers-color-scheme: dark)"', readme)
         self.assertNotIn("<script>", readme)
         self.assertIn("&quot;", readme)
@@ -293,6 +294,33 @@ class FixtureTests(unittest.TestCase):
         api.data[f"/repos/{REPO}"]["stargazers_count"] = 999999
         self.run_generator(api)
         self.assertEqual(before, {p: (p.read_bytes(), p.stat().st_mtime_ns) for p in before})
+
+    def test_shown_stars_use_live_integer_and_round_half_up(self):
+        self.config["show_stars"] = True
+        for stars, label in ((0, "(0 ⭐)"), (999, "(999 ⭐)"), (1000, "(~1k ⭐)"),
+                             (383499, "(~383k ⭐)"), (383500, "(~384k ⭐)"),
+                             (390815, "(~391k ⭐)"), (5274, "(~5k ⭐)")):
+            with self.subTest(stars=stars):
+                api = FakeAPI([pr()])
+                api.data[f"/repos/{REPO}"]["stargazers_count"] = stars
+                readme = self.run_generator(api)[self.root / "README.md"].replace("&nbsp;", " ")
+                self.assertIn(label, readme)
+                self.assertGreater(readme.index(label), readme.index("1 merged]"))
+
+    def test_shown_stars_only_write_when_display_changes(self):
+        self.config["show_stars"] = True
+        def api_with_stars(stars):
+            api = FakeAPI([pr()])
+            api.data[f"/repos/{REPO}"]["stargazers_count"] = stars
+            return api
+        self.run_generator(api_with_stars(383001))
+        paths = (self.root / "README.md", self.root / "CONTRIBUTIONS.md")
+        before = {p: (p.read_bytes(), p.stat().st_mtime_ns) for p in paths}
+        self.run_generator(api_with_stars(383499))
+        self.assertEqual(before, {p: (p.read_bytes(), p.stat().st_mtime_ns) for p in paths})
+        self.run_generator(api_with_stars(383500))
+        self.assertIn("(~384k ⭐)", paths[0].read_text().replace("&nbsp;", " "))
+        self.assertEqual(before[paths[1]], (paths[1].read_bytes(), paths[1].stat().st_mtime_ns))
 
     def test_api_error_preserves_files(self):
         api = FakeAPI()
@@ -357,7 +385,7 @@ class FixtureTests(unittest.TestCase):
         self.assert_unchanged()
 
     def test_configuration_rejects_bad_types_duplicates_and_paths(self):
-        mutations = [lambda c: c.update(version=True), lambda c: c.update(show_stars=True), lambda c: c.update(username="person query:inject"), lambda c: c.update(profile_repository="Another/Another"), lambda c: c.update(logo_size=100), lambda c: c["repositories"].append(dict(c["repositories"][0], repository=REPO.lower())), lambda c: c["repositories"][0].update(repository="Person/fork"), lambda c: c["repositories"][0].update(anchor='bad"'), lambda c: c["repositories"][0].update(logo="../outside.png"), lambda c: c["repositories"][0].update(logo="assets/logos/missing.png"), lambda c: c["repositories"][0].update(unexpected=True)]
+        mutations = [lambda c: c.update(version=True), lambda c: c.update(show_stars="true"), lambda c: c.update(show_stars=1), lambda c: c.update(username="person query:inject"), lambda c: c.update(profile_repository="Another/Another"), lambda c: c.update(logo_size=100), lambda c: c["repositories"].append(dict(c["repositories"][0], repository=REPO.lower())), lambda c: c["repositories"][0].update(repository="Person/fork"), lambda c: c["repositories"][0].update(anchor='bad"'), lambda c: c["repositories"][0].update(logo="../outside.png"), lambda c: c["repositories"][0].update(logo="assets/logos/missing.png"), lambda c: c["repositories"][0].update(unexpected=True)]
         for mutation in mutations:
             config = copy.deepcopy(self.config)
             mutation(config)
