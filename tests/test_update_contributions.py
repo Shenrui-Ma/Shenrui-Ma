@@ -90,9 +90,33 @@ class FixtureTests(unittest.TestCase):
 
     def test_merged_one_and_all_target_branches(self):
         result = self.run_generator(FakeAPI([pr(branch="release/v1")]))
-        self.assertIn("1 merged]", result[self.root / "README.md"])
+        self.assertIn("1 merged]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn("release/v1", result[self.root / "CONTRIBUTIONS.md"])
         self.assertNotIn(" PR]", result[self.root / "README.md"])
+
+    def test_detail_summary_preserves_counted_rows_while_home_hides_counts(self):
+        self.config = configuration([mapping()])
+        self.config["show_stars"] = True
+        result = self.run_generator(FakeAPI([pr()], adoptions=True))
+        home = result[self.root / "README.md"]
+        details = result[self.root / "CONTRIBUTIONS.md"]
+        block = home.split(u.START)[1].split(u.END)[0].strip()
+        self.assertIn("[merged · 🍒picked]", block)
+        self.assertNotIn("[1 merged", block)
+        counted_block = block.replace("[merged · 🍒picked]", "[1 merged · 1 🍒picked]")
+        self.assertTrue(details.startswith("# 📜 Contributions\n\n" + counted_block + "\n\n"))
+        self.assertLess(details.index(counted_block), details.index("Historical accepted contributions"))
+        self.assertIn('CONTRIBUTIONS.md#project)', counted_block)
+        self.assertIn('<a id="project"></a>', details)
+        self.assertEqual(counted_block.count("(10&nbsp;⭐)"), 1)
+
+    def test_new_merge_updates_details_without_churning_home(self):
+        self.run_generator(FakeAPI([pr()]))
+        path = self.root / "README.md"
+        before = (path.read_bytes(), path.stat().st_mtime_ns)
+        result = self.run_generator(FakeAPI([pr(), pr(2)]))
+        self.assertEqual(before, (path.read_bytes(), path.stat().st_mtime_ns))
+        self.assertIn("[2 merged]", result[self.root / "CONTRIBUTIONS.md"])
 
     def test_closed_unmerged_search_hit_is_not_accepted(self):
         with self.assertRaises(u.VerificationError):
@@ -102,7 +126,7 @@ class FixtureTests(unittest.TestCase):
     def test_two_commits_one_adopted(self):
         self.config = configuration([mapping()])
         result = self.run_generator(FakeAPI(adoptions=True))
-        self.assertIn("1 🍒picked]", result[self.root / "README.md"])
+        self.assertIn("1 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertNotIn(" merged", result[self.root / "README.md"])
         self.assertIn(SHA1[:12], result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn(SHA2[:12], result[self.root / "CONTRIBUTIONS.md"])
@@ -116,17 +140,17 @@ class FixtureTests(unittest.TestCase):
         api.data[f"/repos/{REPO}/commits/{'d' * 40}"] = {"sha": "d" * 40, "author": {"login": "Person"}}
         api.data[f"/repos/{REPO}/compare/{'d' * 40}...{HEAD}"] = dict(api.data[f"/repos/{REPO}/compare/{SHA1}...{HEAD}"], base_commit={"sha": "d" * 40}, merge_base_commit={"sha": "d" * 40})
         default = self.run_generator(api)
-        self.assertIn("2 🍒picked]", default[self.root / "README.md"])
+        self.assertIn("2 🍒picked]", default[self.root / "CONTRIBUTIONS.md"])
         self.config["repositories"][0]["adopted_unit"] = "commits"
         result = self.run_generator(api)
-        self.assertIn("3 🍒picked]", result[self.root / "README.md"])
+        self.assertIn("3 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn("3 adopted commits from 2 source PRs", result[self.root / "CONTRIBUTIONS.md"])
         other["landing_commits"] = [SHA1]  # Shared commit is counted once across original PRs.
         result = self.run_generator(api)
-        self.assertIn("2 🍒picked]", result[self.root / "README.md"])
+        self.assertIn("2 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
         result = self.run_generator(api)
-        self.assertIn("1 merged · 1 🍒picked]", result[self.root / "README.md"])
+        self.assertIn("1 merged · 1 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
 
     def test_later_merge_deduplicates_and_handles_search_index_lag(self):
@@ -136,7 +160,7 @@ class FixtureTests(unittest.TestCase):
                 api = FakeAPI([pr(7)] if indexed else [], adoptions=True)
                 api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
                 result = self.run_generator(api)
-                self.assertIn("1 merged]", result[self.root / "README.md"])
+                self.assertIn("1 merged]", result[self.root / "CONTRIBUTIONS.md"])
                 self.assertNotIn(" adopted", result[self.root / "README.md"])
 
     def test_bad_adoptions_preserve_last_snapshot(self):
@@ -233,7 +257,9 @@ class FixtureTests(unittest.TestCase):
             self.assertNotIn("0 ", readme)
             self.assertNotIn("adopted", readme)
             if count:
-                self.assertIn(f"{count} merged]", readme)
+                self.assertIn("[merged]", readme)
+                self.assertNotIn(f"{count} merged]", readme)
+                self.assertIn(f"{count} merged]", result[self.root / "CONTRIBUTIONS.md"])
                 self.assertNotIn(" PR", readme)
             else:
                 self.assertNotIn("[Project]", readme)
@@ -306,7 +332,7 @@ class FixtureTests(unittest.TestCase):
                 readme = self.run_generator(api)[self.root / "README.md"].replace("&nbsp;", " ")
                 self.assertIn(label, readme)
                 self.assertGreater(readme.index(label), readme.index('alt="Project logo">'))
-                self.assertLess(readme.index(label), readme.index("1 merged]"))
+                self.assertLess(readme.index(label), readme.index("[merged]"))
 
     def test_shown_stars_only_write_when_display_changes(self):
         self.config["show_stars"] = True
@@ -321,7 +347,8 @@ class FixtureTests(unittest.TestCase):
         self.assertEqual(before, {p: (p.read_bytes(), p.stat().st_mtime_ns) for p in paths})
         self.run_generator(api_with_stars(383500))
         self.assertIn("(~384k ⭐)", paths[0].read_text().replace("&nbsp;", " "))
-        self.assertEqual(before[paths[1]], (paths[1].read_bytes(), paths[1].stat().st_mtime_ns))
+        self.assertIn("(~384k ⭐)", paths[1].read_text().replace("&nbsp;", " "))
+        self.assertNotEqual(before[paths[1]][0], paths[1].read_bytes())
 
     def test_api_error_preserves_files(self):
         api = FakeAPI()

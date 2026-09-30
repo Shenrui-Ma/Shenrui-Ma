@@ -38,11 +38,13 @@ Add a repository object to `contributions.json`: upstream `repository`, official
 `display_name`, stable lowercase `anchor`, and local `logo` path. Optional `logo_dark`
 provides an official dark appearance asset. Optional `adopted_unit: "commits"` counts
 unique verified landing commits instead of original adopted PRs.
-Homepage labels stay short (`merged` / `adopted`); the details file explains the units. Only Hermes currently uses this explicit owner choice.
+Homepage labels show only status (`merged` / `🍒picked`), without contribution totals.
+The details file begins with the same project list including verified counts,
+logos and stars, followed by counting rules and per-contribution evidence. Only Hermes currently uses this explicit owner choice.
 Verify and record the logo's provenance
 in `assets/logos/SOURCES.md` before adding it. Counts are discovered from GitHub;
 do not add a count field. Actual star integers determine order. With `show_stars: true`, each row also shows
-a small trailing star annotation such as `(~391k ⭐)`, rounded half up to whole
+a small star annotation immediately after its logo such as `(~391k ⭐)`, rounded half up to whole
 thousands. Non-breaking spacing keeps the count and star together.
 Counts below 1,000 are shown exactly. Every refresh reads `stargazers_count` from
 GitHub; no manual star totals or timestamps are stored in the profile. A raw count

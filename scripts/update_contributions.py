@@ -276,19 +276,24 @@ def adopted_count(snapshot):
     return len(snapshot["adopted"]), "PR"
 
 
+def render_contribution_list(lines):
+    return "<h3>\n\n" + "\n".join(f"- {line}" for line in lines) + "\n- …\n\n</h3>" if lines else ""
+
+
 def render(config, branch, snapshots):
     profile = config["profile_repository"]
     branch_path = urllib.parse.quote(branch, safe="")
-    lines = []
+    lines, counted_lines = [], []
     units = "Adopted PRs count each original PR once."
     if any(repo.get("adopted_unit") == "commits" for repo in config["repositories"]):
         units += " Where explicitly configured, adopted commits count distinct verified landing commits instead; the original PR mappings remain listed below."
-    details = ["# Open-source contributions", "", "Historical accepted contributions by [" + markdown(config["username"]) + "](" + github_url(config["username"]) + ").", "", "Merged PRs include all upstream target branches; each target branch is listed below. Adopted contributions are accepted via cherry-pick or upstream integration into the upstream default branch. " + units + " A later direct merge takes precedence and excludes that source PR's adoption mapping. Later refactoring or reverts do not erase historical acceptance.", ""]
+    details = ["Historical accepted contributions by [" + markdown(config["username"]) + "](" + github_url(config["username"]) + ").", "", "Merged PRs include all upstream target branches; each target branch is listed below. Adopted contributions are accepted via cherry-pick or upstream integration into the upstream default branch. " + units + " A later direct merge takes precedence and excludes that source PR's adoption mapping. Later refactoring or reverts do not erase historical acceptance.", ""]
     for snapshot in snapshots:
         repo, metadata = snapshot["config"], snapshot["metadata"]
         merged, adopted = snapshot["merged"], snapshot["adopted"]
         count, unit = adopted_count(snapshot)
-        counts = [f"{number} {kind}" for kind, number in (("merged", len(merged)), ("🍒picked", count)) if number]
+        accepted = [(kind, number) for kind, number in (("merged", len(merged)), ("🍒picked", count)) if number]
+        counts = [f"{number} {kind}" for kind, number in accepted]
         if counts:
             raw = f"https://raw.githubusercontent.com/{urllib.parse.quote(profile, safe='/')}/{branch_path}/"
             logo = f'<img src="{raw}{urllib.parse.quote(repo["logo"], safe="/")}" width="{config["logo_size"]}" height="{config["logo_size"]}" alt="{html.escape(repo["display_name"] + " logo", quote=True)}">'
@@ -298,7 +303,10 @@ def render(config, branch, snapshots):
             stars = metadata["stargazers_count"]
             star_text = f"~{(stars + 500) // 1000}k" if stars >= 1000 else str(stars)
             star_label = f" <sub>({star_text}&nbsp;⭐)</sub>" if config["show_stars"] else ""
-            lines.append(f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo}{star_label} — [{" · ".join(counts)}]({target})')
+            project = f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo}{star_label}'
+            statuses = " · ".join(kind for kind, _ in accepted)
+            lines.append(f"{project} — [{statuses}]({target})")
+            counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":
             details.extend([f"{count} adopted commit{'s' if count != 1 else ''} from {len(adopted)} source PR{'s' if len(adopted) != 1 else ''} (distinct verified landing commits).", ""])
@@ -322,8 +330,9 @@ def render(config, branch, snapshots):
                     if key in record:
                         details.append(f'  - [{label}]({url}): “{markdown(record[key])}”')
         details.append("")
-    block = "<h3>\n\n" + "\n".join(f"- {line}" for line in lines) + "\n- …\n\n</h3>" if lines else ""
-    return block, "\n".join(details).rstrip() + "\n"
+    summary = render_contribution_list(counted_lines)
+    details = ["# 📜 Contributions", "", summary, "", *details]
+    return render_contribution_list(lines), "\n".join(details).rstrip() + "\n"
 
 
 def replace_block(readme, block):

@@ -9,9 +9,9 @@
 <!-- contributions:start -->
 <h3>
 
-- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="25" height="25" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="25" height="25" alt="Hermes Agent logo"></picture> <sub>(~250k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
-- [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="25" height="25" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
+- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="25" height="25" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="25" height="25" alt="Hermes Agent logo"></picture> <sub>(~250k&nbsp;⭐)</sub> — [🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="25" height="25" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub> — [merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
 
 </h3>
