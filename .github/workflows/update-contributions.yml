@@ -1,0 +1,57 @@
+name: Update contributions
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-contributions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    # Leave this repository variable unset until the owner approves automatic writes.
+    if: ${{ vars.ENABLE_PROFILE_UPDATES == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.13'
+      - name: Run offline tests
+        run: python -m unittest discover -s tests -v
+      - name: Verify and refresh contributions
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/update_contributions.py --write
+      - name: Publish changed contribution files
+        env:
+          PROFILE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git add -- README.md CONTRIBUTIONS.md
+          if git diff --cached --quiet; then
+            echo "Contribution content is unchanged." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Keep accepted contribution evidence current' \
+            -m 'Regenerate the profile contribution block and evidence after upstream verification.' \
+            -m 'Confidence: high
+          Scope-risk: narrow
+          Tested: Offline unit tests and live upstream API verification
+          Not-tested: GitHub profile browser rendering'
+          if ! git push origin "HEAD:refs/heads/$PROFILE_BRANCH"; then
+            echo '::error::Push failed. Check permissions, branch rules, or a newer remote head. No force push or automatic rebase was attempted.'
+            exit 1
+          fi

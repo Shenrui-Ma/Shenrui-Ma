@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "username": "Shenrui-Ma",
+  "profile_repository": "Shenrui-Ma/Shenrui-Ma",
+  "sort_by": "stars_desc",
+  "show_stars": false,
+  "logo_size": 18,
+  "repositories": [
+    {
+      "repository": "openclaw/openclaw",
+      "display_name": "OpenClaw",
+      "anchor": "openclaw",
+      "logo": "assets/logos/openclaw.png"
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
+      "display_name": "Hermes Agent",
+      "anchor": "hermes-agent",
+      "logo": "assets/logos/hermes-agent.svg",
+      "logo_dark": "assets/logos/hermes-agent-dark.svg",
+      "adopted_unit": "commits"
+    },
+    {
+      "repository": "Hisn00w/ASu-skills",
+      "display_name": "ASu-skills",
+      "anchor": "asu-skills",
+      "logo": "assets/logos/asu-skills.png"
+    }
+  ],
+  "confirmed_adoptions": [
+    {
+      "repository": "NousResearch/hermes-agent",
+      "source_pr": 107337,
+      "landing_pr": 112265,
+      "evidence_url": "https://github.com/NousResearch/hermes-agent/pull/112265",
+      "landing_commits": [
+        "6973f2622d7c9bf6caee7d3e0c6777d54f0f64c9",
+        "4521e04add661eb4f3628be2ebbaa7b4ad5abae7"
+      ],
+      "reviewed_evidence": [
+        {
+          "kind": "pull_body",
+          "number": 112265,
+          "sha256": "6bf1fcba913d6425966402a2dff2f34aae38a1e40183a57cc8ab0ef04d0062e3",
+          "source_excerpt": "Salvages #107337 (@Shenrui-Ma) — both commits cherry-picked (fix + evals alignment)",
+          "attribution_excerpt": "@Shenrui-Ma"
+        }
+      ]
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
+      "source_pr": 105828,
+      "landing_pr": 120343,
+      "evidence_url": "https://github.com/NousResearch/hermes-agent/pull/120343",
+      "landing_commits": [
+        "93c5856bd55d757d84b58066e53438ed43a29f82"
+      ],
+      "reviewed_evidence": [
+        {
+          "kind": "pull_body",
+          "number": 120343,
+          "sha256": "f25f63191afbc14eb02738d97b804272d09c9a2c16dc90ca5c7527e704e93629",
+          "source_excerpt": "Salvaged **#105828** (@Shenrui-Ma, earliest of two): the strip pass keeps authored nulls.",
+          "attribution_excerpt": "@Shenrui-Ma"
+        }
+      ]
+    }
+  ]
+}
