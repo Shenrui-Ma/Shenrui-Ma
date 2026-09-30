@@ -19,13 +19,13 @@ Video Gen · Agent Harness</h3>
 ### models
 
 <h3>
-<a href="https://civitai.red/user/Shenrui_Ma">Civitai</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 41k downloads
+<a href="https://civitai.red/user/Shenrui_Ma">Civitai</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k downloads
 </h3>
 
 ### social
 
 <h3>
-<a href="https://space.bilibili.com/12595237">Bilibili</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/bilibili.png" width="20" height="20" alt="Bilibili logo"> — 14k followers<br>
+<a href="https://space.bilibili.com/12595237">Bilibili</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/bilibili.png" width="20" height="20" alt="Bilibili logo"> — 14k 👤<br>
 <a href="https://www.xiaohongshu.com/user/profile/68483ecb000000001b019555">Rednote</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/xiaohongshu.svg" width="20" height="20" alt="Rednote logo"> — fun<br>
 <a href="https://www.xiaohongshu.com/user/profile/6871d21d000000001b02205c">Rednote</a> <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/xiaohongshu.svg" width="20" height="20" alt="Rednote logo"> — daily
 </h3>
