@@ -41,15 +41,19 @@ canvas. No part is cropped; the academic marks and text geometry are unchanged.
 
 ## Enlarged academic marks
 
-Current display files are `closure-affiliations-large-marks.svg` and
-`closure-affiliations-wide-large-marks.svg`. Both academic marks and their white
+Current display files are `closure-affiliations-logo-gap.svg` and
+`closure-affiliations-wide-logo-gap.svg`. Both academic marks and their white
 circular backdrops use an exact 2× scale (wide circle diameter about 82px).
-Centers are (188,200) and (188,580), preserving their vertical stack. Original
+Centers are (188,200) and (188,660), preserving their vertical stack. Original
 embedded image bytes and the feather mask remain unchanged. The wide portrait
 is translated to x=208 with its original scale. The compact portrait is fitted
 within the unchanged 1216×1088 canvas using translate(208,93.052632) and
 scale(0.828947368), avoiding clipping beside the larger marks.
 
-- `closure-affiliations-large-marks.svg` SHA-256: `210632917732e19368a57cbbea788570739bc748131a16d2fe223f3d3c234928`.
+- `closure-affiliations-logo-gap.svg` SHA-256: `3040b1fab51a87e1626bd32fc08166116dc71286fc229c179354f1fe4e842ae6`.
 
-- `closure-affiliations-wide-large-marks.svg` SHA-256: `f6c5bf8f37f176138de7b6aebc5dc3bd1ad3bc6df00ba864c9b426b168e8db44`.
+- `closure-affiliations-wide-logo-gap.svg` SHA-256: `3bce0aed36e3c2fc35e63cc32a9b6b2b1ccf6a4d318439f91d5153f329e2f357`.
+
+The UCAS mark is translated 80 source units lower (about 18px on the wide
+layout), increasing the clear vertical gap between the two circular marks.
+The CASIA mark, portrait, logo scales and overall canvas are unchanged.
