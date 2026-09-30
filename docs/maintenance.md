@@ -114,10 +114,9 @@ also a manual snapshot outside the contribution updater's managed region. Civita
 and Bilibili logos follow their linked platform names at 20px; their provenance is
 recorded in `assets/logos/SOURCES.md`.
 
-The two Rednote (Xiaohongshu) links are owner-supplied: `68483ecb000000001b019555` is the
-fun account (二创号), and `6871d21d000000001b02205c` is the daily-life account
-(日常号). They share a rounded-corner wrapper around the official platform icon and intentionally display no follower
-counts. Keep these profile IDs distinct when editing the social section.
+The Rednote link is the owner-supplied daily-life account
+`6871d21d000000001b02205c`. Only this account is displayed, without a `daily`
+suffix or follower count. The fan-works account is intentionally omitted.
 
 Edit the biography outside the two contribution markers. Keep exactly one start and
 one end marker, in order. Logo refreshes are a separate, manually reviewed operation;
