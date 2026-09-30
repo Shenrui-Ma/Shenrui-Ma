@@ -183,7 +183,7 @@ SOFTWARE.
 - Local file: `casia.jpg`; dimensions: 238 × 236.
 - SHA-256: `74240e44885cfaa7ad12059ac91b8e34ed5366dc8fd15ff43b4bd1dead1e5740`.
 - Processing: None: byte-for-byte downloaded official identity-page image. Original white background retained.
-- The identity page retains institute copyright. No independent asset license is asserted. The original white background is preserved.
+- The identity page retains institute copyright. No independent asset license is asserted. The original image bytes are preserved and inset in a white circular display backdrop; no part of the triangular mark is cropped.
 
 ## UCAS academic identity mark
 
