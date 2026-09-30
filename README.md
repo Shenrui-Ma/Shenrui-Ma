@@ -21,7 +21,7 @@
 
 <h3>
 
-- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k ↓
+- [Civitai](https://civitai.red/user/Shenrui_Ma) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/civitai.svg" width="20" height="20" alt="Civitai logo"> — 1k 👤 · 41k ⬇️
 
 </h3>
 

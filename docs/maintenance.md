@@ -108,10 +108,10 @@ the next run starts from the latest default-branch head.
 ## Edit text or logos
 
 The `models` section links to the owner's Civitai profile and displays
-`1k 👤 · 41k ↓`. The person silhouette emoji `👤` replaces the word
+`1k 👤 · 41k ⬇️`. The person silhouette emoji `👤` replaces the word
 `followers` at normal text size. These are manually verified snapshots outside
 the GitHub contribution markers: 998 followers round to `1k`, and the displayed
-41.3k downloads round to `41k ↓`. The down arrow `↓` labels downloads. For future manual refreshes use
+41.3k downloads round to `41k ⬇️`. The down arrow emoji `⬇️` labels downloads. For future manual refreshes use
 `floor(count / 1000 + 0.5)` and the lowercase `k` suffix. The current workflow does
 not fetch or update Civitai statistics.
 
