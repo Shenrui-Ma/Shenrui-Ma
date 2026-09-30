@@ -94,16 +94,18 @@ class FixtureTests(unittest.TestCase):
         self.assertIn("release/v1", result[self.root / "CONTRIBUTIONS.md"])
         self.assertNotIn(" PR]", result[self.root / "README.md"])
 
-    def test_detail_summary_preserves_counted_rows_while_home_hides_counts(self):
+    def test_detail_summary_preserves_counts_while_home_shows_only_projects(self):
         self.config = configuration([mapping()])
         self.config["show_stars"] = True
         result = self.run_generator(FakeAPI([pr()], adoptions=True))
         home = result[self.root / "README.md"]
         details = result[self.root / "CONTRIBUTIONS.md"]
         block = home.split(u.START)[1].split(u.END)[0].strip()
-        self.assertIn("[merged · 🍒picked]", block)
-        self.assertNotIn("[1 merged", block)
-        counted_block = block.replace("[merged · 🍒picked]", "[1 merged · 1 🍒picked]")
+        self.assertNotIn("merged", block)
+        self.assertNotIn("🍒picked", block)
+        self.assertNotIn(" — ", block)
+        project_line = next(line for line in block.splitlines() if line.startswith("- ["))
+        counted_block = block.replace(project_line, project_line + " — [1 merged · 1 🍒picked](https://github.com/Person/Person/blob/main/CONTRIBUTIONS.md#project)")
         self.assertTrue(details.startswith("# 📜 Contributions\n\n" + counted_block + "\n\n"))
         self.assertLess(details.index(counted_block), details.index("Historical accepted contributions"))
         self.assertIn('CONTRIBUTIONS.md#project)', counted_block)
@@ -250,14 +252,15 @@ class FixtureTests(unittest.TestCase):
         api.data["/repos/aaa/other"]["stargazers_count"] = 11
         self.assertEqual(u.collect(api, self.config, "main")[1][0]["metadata"]["full_name"], "aaa/other")
 
-    def test_zero_categories_and_short_labels(self):
+    def test_zero_categories_and_project_only_home(self):
         for count in (0, 1, 2):
             result = self.run_generator(FakeAPI([pr(i) for i in range(1, count + 1)]))
             readme = result[self.root / "README.md"]
             self.assertNotIn("0 ", readme)
             self.assertNotIn("adopted", readme)
             if count:
-                self.assertIn("[merged]", readme)
+                self.assertIn("[Project]", readme)
+                self.assertNotIn("merged", readme)
                 self.assertNotIn(f"{count} merged]", readme)
                 self.assertIn(f"{count} merged]", result[self.root / "CONTRIBUTIONS.md"])
                 self.assertNotIn(" PR", readme)
@@ -332,7 +335,7 @@ class FixtureTests(unittest.TestCase):
                 readme = self.run_generator(api)[self.root / "README.md"].replace("&nbsp;", " ")
                 self.assertIn(label, readme)
                 self.assertGreater(readme.index(label), readme.index('alt="Project logo">'))
-                self.assertLess(readme.index(label), readme.index("[merged]"))
+                self.assertNotIn(" — ", readme)
 
     def test_shown_stars_only_write_when_display_changes(self):
         self.config["show_stars"] = True

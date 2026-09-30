@@ -304,8 +304,7 @@ def render(config, branch, snapshots):
             star_text = f"~{(stars + 500) // 1000}k" if stars >= 1000 else str(stars)
             star_label = f" <sub>({star_text}&nbsp;⭐)</sub>" if config["show_stars"] else ""
             project = f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo}{star_label}'
-            statuses = " · ".join(kind for kind, _ in accepted)
-            lines.append(f"{project} — [{statuses}]({target})")
+            lines.append(project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":

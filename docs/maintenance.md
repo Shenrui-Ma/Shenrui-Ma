@@ -38,7 +38,8 @@ Add a repository object to `contributions.json`: upstream `repository`, official
 `display_name`, stable lowercase `anchor`, and local `logo` path. Optional `logo_dark`
 provides an official dark appearance asset. Optional `adopted_unit: "commits"` counts
 unique verified landing commits instead of original adopted PRs.
-Homepage labels show only status (`merged` / `🍒picked`), without contribution totals.
+Homepage rows show only project names, logos and stars, without contribution totals
+or status labels. The Contributions heading links to the details page.
 The details file begins with the same project list including verified counts,
 logos and stars, followed by counting rules and per-contribution evidence. Only Hermes currently uses this explicit owner choice.
 Verify and record the logo's provenance
