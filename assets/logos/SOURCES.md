@@ -1,6 +1,6 @@
 # Official logo sources
 
-Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu PNG is a generated transparent-background derivative explicitly approved by the owner; see its processing record below. Display size is 18 × 18 CSS pixels.
+Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu PNG is a generated transparent-background derivative explicitly approved by the owner; see its processing record below. Display size is 20 × 20 CSS pixels.
 
 The commit below identifies the repository revision containing the asset. The separately labeled Git blob SHA identifies file bytes and is not a commit. SHA-256 values apply to the local copies.
 
@@ -48,7 +48,7 @@ License source: [upstream LICENSE](https://github.com/NousResearch/hermes-agent/
   - Original upstream Git blob SHA: `838e2ec279d0f1a344acecba78754888d044b079` (does not identify the local derivative).
   - Processing: built-in `image_gen` background extraction, transparent RGBA PNG, 1254 × 1254. The prompt requested removal of only the white exterior and preservation of the circular blue artwork. Pixel checks found interior differences; the owner explicitly accepted the generated transparent version after that finding. This derivative is not an unchanged or pixel-identical upstream asset.
 
-Identity: the official [README](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/README.md) directly renders `assets/asu-avatar-circle.png` with alt text `ASu-skills 图标`. The local PNG retains the circular avatar composition, with the exterior white background replaced by transparency. The generated derivative was reviewed at the intended 18px size in light and dark appearances.
+Identity: the official [README](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/README.md) directly renders `assets/asu-avatar-circle.png` with alt text `ASu-skills 图标`. The local PNG retains the circular avatar composition, with the exterior white background replaced by transparency. The generated derivative was reviewed at the intended 20px size in light and dark appearances.
 
 License source: [upstream LICENSE](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/LICENSE). The corresponding original notice is reproduced below.
 
@@ -144,7 +144,7 @@ SOFTWARE.
 ## Civitai platform icon
 
 - Official source: [https://civitai.red/user/Shenrui_Ma](https://civitai.red/user/Shenrui_Ma).
-- Local file: `civitai.svg`; SVG viewBox -1 0 22.7 22.7; displayed at 18 × 18 CSS pixels.
+- Local file: `civitai.svg`; SVG viewBox -1 0 22.7 22.7; displayed at 20 × 20 CSS pixels.
 - Local SHA-256: `6f5ae8477fa127597592ed78c09d04a2ec79aba50c5d1c7424cbf42ac2d26d83`.
 - Processing: Extracted the compact SVG inside the official navigation link with aria-label Civitai home. Removed the page-specific responsive CSS class and normalized XML serialization; paths, gradients, colors and viewBox are unchanged. No image generation or redraw.
 - Retrieved: 2026-09-30. Website asset rather than a pinned Git repository file; no source commit or Git blob SHA is claimed.
@@ -153,7 +153,7 @@ SOFTWARE.
 ## Bilibili platform icon
 
 - Official source: [https://www.bilibili.com/favicon.ico](https://www.bilibili.com/favicon.ico).
-- Local file: `bilibili.png`; PNG 32 × 32; displayed at 18 × 18 CSS pixels.
+- Local file: `bilibili.png`; PNG 32 × 32; displayed at 20 × 20 CSS pixels.
 - Local SHA-256: `094011359a6e0308828b7e5644200c724ac9bea433da022c869ce02d89add0d4`.
 - Processing: Downloaded the favicon declared by the official account page and converted its original 32 × 32 ICO frame to RGBA PNG without resizing or changing colors. Transparent background preserved.
 - Retrieved: 2026-09-30. Website asset rather than a pinned Git repository file; no source commit or Git blob SHA is claimed.
@@ -163,7 +163,7 @@ SOFTWARE.
 ## Xiaohongshu platform icon
 
 - Official source: [page-declared Apple touch icon](https://picasso-static.xiaohongshu.com/fe-platform/f43dc4a8baf03678996c62d8db6ebc01a82256ff.png), linked by the HTML of the owner-supplied profile page https://www.xiaohongshu.com/user/profile/68483ecb000000001b019555.
-- Local file: `xiaohongshu.png`; original 180 × 180 PNG; displayed at 18 × 18 CSS pixels for both accounts.
+- Local file: `xiaohongshu.png`; original 180 × 180 PNG; displayed at 20 × 20 CSS pixels for both accounts.
 - SHA-256: `2912c4df1ab479d734ef132e9c45b4f17afa80b2aa3eaf4438acd54afc70b20a`.
 - Processing: none; exact downloaded bytes. No generation, redraw, or recoloring.
 - Retrieved: 2026-09-30. CDN asset rather than a pinned Git repository file; no commit or Git blob SHA is claimed.

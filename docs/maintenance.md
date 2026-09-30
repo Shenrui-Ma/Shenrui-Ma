@@ -110,7 +110,7 @@ The `social` section links to Bilibili account `12595237` (四倍体果蝇-Ray).
 verified follower total was 14,270, read from the profile's visible follower-count
 tooltip, and is displayed as `14k followers` using the same rounding rule. This is
 also a manual snapshot outside the contribution updater's managed region. Civitai
-and Bilibili logos follow their linked platform names at 18px; their provenance is
+and Bilibili logos follow their linked platform names at 20px; their provenance is
 recorded in `assets/logos/SOURCES.md`.
 
 The two Rednote (Xiaohongshu) links are owner-supplied: `68483ecb000000001b019555` is the
@@ -121,7 +121,7 @@ counts. Keep these profile IDs distinct when editing the social section.
 Edit the biography outside the two contribution markers. Keep exactly one start and
 one end marker, in order. Logo refreshes are a separate, manually reviewed operation;
 the count workflow does not redownload or recolor assets. Keep original brand notices
-and recheck both themes at 18px. Repository code licenses do not automatically grant
+and recheck both themes at 20px. Repository code licenses do not automatically grant
 trademark rights.
 
 ## Official platform references
@@ -133,9 +133,15 @@ trademark rights.
 
 The owner-supplied `assets/closure.png` is embedded unchanged in
 `assets/closure-feathered.svg`, which applies the owner-requested elliptical opacity
-mask. Its picture uses 280px above 600px viewport width, 160px at 481–600px, and
-128px on smaller screens to preserve the surrounding text layout. It sits beside the biography using
+mask. Wide screens use `closure-profile-wide.svg`: a 460px canvas containing the
+same approximately 280px portrait with transparent space to its right, moving it
+closer to the text. Compact screens use the original feathered SVG at 128px for
+481–600px viewports and 104px below that. It sits beside the biography using
 HTML image alignment without a clearing line break, so contributions follow the
 biography without waiting for the image height. It is outside the updater region.
 Keep the source aspect ratio and transparency; provenance is in `assets/SOURCES.md`.
 The biography reads `Video Gen · Agent Harness`.
+
+The biography and content rows use native `<h3>` groups for a larger, approximately
+20px GitHub font. Section labels remain concise. Contribution generation must keep
+its HTML link escaping and heading wrapper so refreshes preserve this typography.

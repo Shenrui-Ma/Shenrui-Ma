@@ -90,9 +90,9 @@ class FixtureTests(unittest.TestCase):
 
     def test_merged_one_and_all_target_branches(self):
         result = self.run_generator(FakeAPI([pr(branch="release/v1")]))
-        self.assertIn("1 merged]", result[self.root / "README.md"])
+        self.assertIn(">1 merged</a>", result[self.root / "README.md"])
         self.assertIn("release/v1", result[self.root / "CONTRIBUTIONS.md"])
-        self.assertNotIn(" PR]", result[self.root / "README.md"])
+        self.assertNotIn(" PR</a>", result[self.root / "README.md"])
 
     def test_closed_unmerged_search_hit_is_not_accepted(self):
         with self.assertRaises(u.VerificationError):
@@ -102,7 +102,7 @@ class FixtureTests(unittest.TestCase):
     def test_two_commits_one_adopted(self):
         self.config = configuration([mapping()])
         result = self.run_generator(FakeAPI(adoptions=True))
-        self.assertIn("1 adopted]", result[self.root / "README.md"])
+        self.assertIn(">1 adopted</a>", result[self.root / "README.md"])
         self.assertNotIn(" merged", result[self.root / "README.md"])
         self.assertIn(SHA1[:12], result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn(SHA2[:12], result[self.root / "CONTRIBUTIONS.md"])
@@ -116,17 +116,17 @@ class FixtureTests(unittest.TestCase):
         api.data[f"/repos/{REPO}/commits/{'d' * 40}"] = {"sha": "d" * 40, "author": {"login": "Person"}}
         api.data[f"/repos/{REPO}/compare/{'d' * 40}...{HEAD}"] = dict(api.data[f"/repos/{REPO}/compare/{SHA1}...{HEAD}"], base_commit={"sha": "d" * 40}, merge_base_commit={"sha": "d" * 40})
         default = self.run_generator(api)
-        self.assertIn("2 adopted]", default[self.root / "README.md"])
+        self.assertIn(">2 adopted</a>", default[self.root / "README.md"])
         self.config["repositories"][0]["adopted_unit"] = "commits"
         result = self.run_generator(api)
-        self.assertIn("3 adopted]", result[self.root / "README.md"])
+        self.assertIn(">3 adopted</a>", result[self.root / "README.md"])
         self.assertIn("3 adopted commits from 2 source PRs", result[self.root / "CONTRIBUTIONS.md"])
         other["landing_commits"] = [SHA1]  # Shared commit is counted once across original PRs.
         result = self.run_generator(api)
-        self.assertIn("2 adopted]", result[self.root / "README.md"])
+        self.assertIn(">2 adopted</a>", result[self.root / "README.md"])
         api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
         result = self.run_generator(api)
-        self.assertIn("1 merged · 1 adopted]", result[self.root / "README.md"])
+        self.assertIn(">1 merged · 1 adopted</a>", result[self.root / "README.md"])
         self.assertIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
 
     def test_later_merge_deduplicates_and_handles_search_index_lag(self):
@@ -136,7 +136,7 @@ class FixtureTests(unittest.TestCase):
                 api = FakeAPI([pr(7)] if indexed else [], adoptions=True)
                 api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
                 result = self.run_generator(api)
-                self.assertIn("1 merged]", result[self.root / "README.md"])
+                self.assertIn(">1 merged</a>", result[self.root / "README.md"])
                 self.assertNotIn(" adopted", result[self.root / "README.md"])
 
     def test_bad_adoptions_preserve_last_snapshot(self):
@@ -233,10 +233,11 @@ class FixtureTests(unittest.TestCase):
             self.assertNotIn("0 ", readme)
             self.assertNotIn("adopted", readme)
             if count:
-                self.assertIn(f"{count} merged]", readme)
+                self.assertIn(f">{count} merged</a>", readme)
                 self.assertNotIn(" PR", readme)
             else:
-                self.assertNotIn("[Project]", readme)
+                self.assertNotIn(">Project</a>", readme)
+                self.assertNotIn("<h3>", readme)
 
     def test_readme_outside_markers_byte_preserved(self):
         self.run_generator(FakeAPI([pr()]))
@@ -259,7 +260,7 @@ class FixtureTests(unittest.TestCase):
         api.data[f"/repos/{REPO}/pulls/1"]["title"] = "<script>alert(1)</script> [click](https://evil.invalid)\n# heading"
         result = self.run_generator(api)
         readme = result[self.root / "README.md"]
-        self.assertLess(readme.index("]("), readme.index("<picture>"))
+        self.assertLess(readme.index("</a>"), readme.index("<picture>"))
         self.assertIn('width="18" height="18"', readme)
         self.assertIn('media="(prefers-color-scheme: dark)"', readme)
         self.assertNotIn("<script>", readme)
