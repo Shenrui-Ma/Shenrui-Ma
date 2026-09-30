@@ -19,16 +19,22 @@
 
 ## Academic marks within the existing transparent area
 
-`closure-affiliations-round.svg` and `closure-affiliations-wide-round.svg` preserve the respective
-original canvas, character image, and feather mask exactly. They place the original CASIA and UCAS logo bytes within the same x=8..188 strip: CASIA has a white circular backdrop centered at (98,170) with radius 89 and
+`closure-affiliations-spaced.svg` and `closure-affiliations-wide-spaced.svg` preserve the respective original canvas, character image bytes, and feather mask. They place the original CASIA and UCAS logo bytes within the same x=8..188 strip: CASIA has a white circular backdrop centered at (98,170) with radius 89 and
 its complete original mark inset to 124 × 122.96; UCAS occupies y=340..520
 in the character’s 1216 × 1088 coordinate space. These rectangles were verified to
 contain no opaque character pixels. The wide layout displays each mark at about
-41px. No image width, text boundary, character position, or layout gap is increased.
+41px. The overall canvas, text boundary and logo centers remain fixed. Only the portrait is shifted slightly right to add separation from the marks.
 Both displays have white circular backdrops for dark-mode contrast; the original logo pixels
 and brand colors are unchanged. Individual sources and usage statements are in
 `logos/SOURCES.md`.
 
-- `closure-affiliations-round.svg` SHA-256: `d77d766d680dbd243fe8fd22d78820d65c44294c00b8aace54ff91e3c9548778`.
+- `closure-affiliations-spaced.svg` SHA-256: `3b85636b3b7388e9a3f6fec2396e14f56352f5c32db741e1201d8aa4da555a29`.
 
-- `closure-affiliations-wide-round.svg` SHA-256: `24c415ff4b773d21005ddff311ed4298e5f78a4d5cfb51ab2f702e82a0182ad0`.
+- `closure-affiliations-wide-spaced.svg` SHA-256: `61fb4a11c97771d8ba180b6e0f235725c098f0aa0ab77705df529c40cc554bdb`.
+
+### Portrait-only spacing adjustment
+
+The wide portrait is translated 48 source units right (about 11px at display
+size). In the compact variant it is translated right and uniformly scaled by
+0.960526316 about its vertical center to keep the full artwork within the same
+canvas. No part is cropped; the academic marks and text geometry are unchanged.

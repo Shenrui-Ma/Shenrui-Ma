@@ -1,6 +1,6 @@
 # Official logo sources
 
-Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu PNG is a generated transparent-background derivative explicitly approved by the owner; see its processing record below. Display size is 20 × 20 CSS pixels.
+Verified on 2026-09-30. The updater never downloads or changes these assets. Civitai, Bilibili and Xiaohongshu website-sourced icons were added later in this local review; their records are below. The OpenClaw PNG and both Hermes SVGs are byte-for-byte copies of the pinned upstream files. The ASu avatar is the owner-supplied WEBP displayed through a circular SVG clip; see its current source record below. Display size is 20 × 20 CSS pixels.
 
 The commit below identifies the repository revision containing the asset. The separately labeled Git blob SHA identifies file bytes and is not a commit. SHA-256 values apply to the local copies.
 
@@ -39,24 +39,19 @@ License source: [upstream LICENSE](https://github.com/NousResearch/hermes-agent/
 
 ## ASu-skills
 
-- Repository: [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills)
-- Source commit: [`cb9f3080897c24305b2a888d6c363367aed53563`](https://github.com/Hisn00w/ASu-skills/commit/cb9f3080897c24305b2a888d6c363367aed53563)
-- Local asset: `asu-skills.png`; original dimensions/viewBox: `[1254, 1254]`.
-  - [Pinned source file](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/assets/asu-avatar-circle.png); [raw bytes](https://raw.githubusercontent.com/Hisn00w/ASu-skills/cb9f3080897c24305b2a888d6c363367aed53563/assets/asu-avatar-circle.png).
-  - Local derivative SHA-256: `0120276000d57e687b65aeb822bb7cfd153b6583acd37744d8be6f84a08b38f1`.
-  - Original upstream SHA-256: `dcac9dc2562485a17026829be84c19675ffbbe39f70cc42125f99549ed99a195`.
-  - Original upstream Git blob SHA: `838e2ec279d0f1a344acecba78754888d044b079` (does not identify the local derivative).
-  - Processing: built-in `image_gen` background extraction, transparent RGBA PNG, 1254 × 1254. The prompt requested removal of only the white exterior and preservation of the circular blue artwork. Pixel checks found interior differences; the owner explicitly accepted the generated transparent version after that finding. This derivative is not an unchanged or pixel-identical upstream asset.
-
-Identity: the official [README](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/README.md) directly renders `assets/asu-avatar-circle.png` with alt text `ASu-skills 图标`. The local PNG retains the circular avatar composition, with the exterior white background replaced by transparency. The generated derivative was reviewed at the intended 20px size in light and dark appearances.
-
-License source: [upstream LICENSE](https://github.com/Hisn00w/ASu-skills/blob/cb9f3080897c24305b2a888d6c363367aed53563/LICENSE). The corresponding original notice is reproduced below.
+- Current original: `asu-skills.webp`, supplied directly by the owner as `ddc7c6ae-5484-4319-9015-54e8038d47b9.webp`.
+- Dimensions: 240 × 240; original WEBP bytes preserved exactly.
+- Original SHA-256: `8f7ee2bbc727a4e1409c1d56d849e3351b4cfe6aee35547fbcbee815de118e12`.
+- Display: `asu-skills.svg`, embedding the original WEBP and applying a circle centered at (120,120), radius 120. Only the corners are clipped; no generation, retouching, recoloring or replacement artwork is used.
+- Display SHA-256: `650d5079356560bc4a3e09b2ec25223513f031f62a09e38ac30a7d55acd55ec8`.
+- The previous generated transparency variant was replaced at the owner's request. Its earlier official-source record is retained in Git history; it is not the source of this new avatar.
+- No license for this owner-supplied image is inferred from the upstream project's code license. The historical upstream notice below does not apply to this replacement.
 
 ## Rights and attribution scope
 
 The three pinned root LICENSE files contain MIT notices. OpenClaw’s repository metadata reports `NOASSERTION`, while its pinned LICENSE and README explicitly state MIT; the actual pinned file is the source recorded here. The root directory listings, the relevant README/HTML/icon generator, the master SVGs, and the root LICENSE files were inspected. No separate logo-specific grant or brand policy was found in those reviewed sources. This is a scoped observation, not a claim that no policy exists anywhere.
 
-A code license is not treated here as a blanket trademark or endorsement grant. These official-source assets (including the owner-approved ASu transparency derivative) identify their respective upstream projects in a factual contributions list. Project names and marks remain associated with their respective owners; the profile does not claim ownership, sponsorship, or endorsement. No broader brand permission is asserted. If an owner identifies an additional applicable restriction, re-review the local copy and consider an owner-approved hosted asset.
+A code license is not treated here as a blanket trademark or endorsement grant. These official-source assets (including the owner-supplied ASu avatar) identify their respective upstream projects in a factual contributions list. Project names and marks remain associated with their respective owners; the profile does not claim ownership, sponsorship, or endorsement. No broader brand permission is asserted. If an owner identifies an additional applicable restriction, re-review the local copy and consider an owner-approved hosted asset.
 
 ## Original license notices
 
@@ -115,7 +110,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### ASu-skills
+### ASu-skills (historical upstream asset)
 
 ```text
 MIT License

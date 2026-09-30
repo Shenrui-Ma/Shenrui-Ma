@@ -149,9 +149,13 @@ Keep blank lines inside the heading wrappers so Markdown lists are parsed.
 Contribution generation must retain Markdown escaping and the wrappers so refreshes
 preserve the bullets, typography, and the final ellipsis item.
 
-The current displayed composites are `closure-affiliations-round.svg` (compact) and
-`closure-affiliations-wide-round.svg` (wide). They add CASIA above UCAS within existing
+The current displayed composites are `closure-affiliations-spaced.svg` (compact) and
+`closure-affiliations-wide-spaced.svg` (wide). They add CASIA above UCAS within existing
 transparent space on the character’s left. Keep the original canvas dimensions,
 character image coordinates and text layout unchanged when editing this stack.
 Use the preserved originals in `assets/logos/` and consult their official source
 statements. The logos are not regenerated or recolored.
+
+The current ASu-skills avatar is the owner-supplied `asu-skills.webp`, embedded
+unchanged in `asu-skills.svg` and clipped to a circle. It replaces the earlier
+generated transparency variant; do not restore the old avatar during refreshes.
