@@ -1,6 +1,6 @@
 # Hi! 👋I'm Shenrui
 
-<h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Self-Evolution</h3>
+<h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
 
 <picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-marks-close.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-marks-close.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-wide-marks-close.svg" width="460" hspace="0" alt="CASIA and UCAS logos beside Closure"></picture>
 
