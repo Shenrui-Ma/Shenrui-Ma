@@ -2,7 +2,7 @@
 
 <h3>
 
-- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
+- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~250k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
@@ -18,6 +18,8 @@ Merged PRs include all upstream target branches; each target branch is listed be
 
 - [#159755: fix: allow custom strings alongside tool parameter presets](https://github.com/openclaw/openclaw/pull/159755) — Merged into **main** on 2026\-09\-29.
   - [Recorded merge commit `eee6823c07ed`](https://github.com/openclaw/openclaw/commit/eee6823c07ed47fb2c6b9fbb59e1287e05cb425f). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
+- [#160599: docs: fix Bitwarden and password\-store recipe links](https://github.com/openclaw/openclaw/pull/160599) — Merged into **main** on 2026\-10\-01.
+  - [Recorded merge commit `721efcefc0c7`](https://github.com/openclaw/openclaw/commit/721efcefc0c79af2ec7e2af21c47f283e8ee6601). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 
 <a id="hermes-agent"></a>
 ## [Hermes Agent](https://github.com/NousResearch/hermes-agent)
