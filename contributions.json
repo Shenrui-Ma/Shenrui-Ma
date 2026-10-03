@@ -10,7 +10,8 @@
       "repository": "openclaw/openclaw",
       "display_name": "OpenClaw",
       "anchor": "openclaw",
-      "logo": "assets/logos/openclaw.png"
+      "logo": "assets/logos/openclaw.png",
+      "badge_color": "B74747"
     },
     {
       "repository": "NousResearch/hermes-agent",
@@ -18,19 +19,22 @@
       "anchor": "hermes-agent",
       "logo": "assets/logos/hermes-agent.svg",
       "logo_dark": "assets/logos/hermes-agent-dark.svg",
-      "adopted_unit": "commits"
+      "adopted_unit": "commits",
+      "badge_color": "596579"
     },
     {
       "repository": "steipete/CodexBar",
       "display_name": "CodexBar",
       "anchor": "codexbar",
-      "logo": "assets/logos/codexbar.png"
+      "logo": "assets/logos/codexbar.png",
+      "badge_color": "397D73"
     },
     {
       "repository": "Hisn00w/ASu-skills",
       "display_name": "ASu-skills",
       "anchor": "asu-skills",
-      "logo": "assets/logos/asu-skills.svg"
+      "logo": "assets/logos/asu-skills.svg",
+      "badge_color": "6265A8"
     }
   ],
   "confirmed_adoptions": [

@@ -344,6 +344,27 @@ class FixtureTests(unittest.TestCase):
         self.assertNotIn("<script>", result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn("\\[click\\]", result[self.root / "CONTRIBUTIONS.md"])
 
+    def test_badge_names_escape_shields_syntax_and_keep_details_plain(self):
+        self.config["repositories"][0].update(display_name="ASu-skills_v2", badge_color="6265A8")
+        result = self.run_generator(FakeAPI([pr()]))
+        home = result[self.root / "README.md"]
+        details = result[self.root / "CONTRIBUTIONS.md"]
+        self.assertIn("https://img.shields.io/badge/ASu--skills__v2-6265A8?style=flat", home)
+        self.assertIn("](https://github.com/Upstream/project)", home)
+        self.assertLess(home.index("img.shields.io"), home.index('alt="ASu-skills_v2 logo"'))
+        self.assertNotIn("img.shields.io", details)
+        self.assertIn("[1 merged]", details)
+        self.assertNotIn("[1 merged]", home)
+        self.config["repositories"][0]["display_name"] = "Hermes Agent"
+        self.assertIn("Hermes%20Agent-6265A8", self.run_generator(FakeAPI([pr()]))[self.root / "README.md"])
+
+    def test_badge_color_rejects_non_hex_or_injected_values(self):
+        for color in (None, True, "red", "#ff0000", "ff0000?logo=github", 'ffffff" onclick="bad'):
+            with self.subTest(color=color):
+                self.config["repositories"][0]["badge_color"] = color
+                with self.assertRaises(u.VerificationError):
+                    u.validate_config(self.config, self.root)
+
     def test_real_profile_branch_or_explicit_override_no_fallback(self):
         api = FakeAPI()
         self.assertEqual(u.collect(api, self.config)[0], "published")

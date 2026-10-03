@@ -192,3 +192,15 @@ The owned-star indicator floats on the right inside the biography heading below
 the greeting. `assets/own-stars.svg` and `assets/own-stars-dark.svg` render the same
 verified count in light and dark themes; their updates are atomic with the Markdown.
 The readme alt text retains the literal outlined-star count.
+
+## Project-name badges
+
+The approved homepage uses Shields.io `flat` static badges for the four project
+names. Each repository's optional `badge_color` is a six-digit hex color. Project
+links, original 20px logos and small star annotations remain beside the badges.
+The details-page summary retains plain linked names and verified counts.
+
+Badge names are URL-encoded with Shields.io escaping for hyphens and underscores.
+The badges load from `img.shields.io`; alternative text retains the project name
+if the external image is unavailable. No package dependency or scheduler change
+is needed for this styling.

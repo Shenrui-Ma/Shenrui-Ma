@@ -63,7 +63,9 @@ def validate_config(config, root):
         require(type(config["own_stars"]["include_forks"]) is bool, "include_forks must be boolean")
     repositories, anchors = set(), set()
     for repo in config["repositories"]:
-        exact_keys(repo, ("repository", "display_name", "anchor", "logo"), ("logo_dark", "adopted_unit"))
+        exact_keys(repo, ("repository", "display_name", "anchor", "logo"), ("logo_dark", "adopted_unit", "badge_color"))
+        if "badge_color" in repo:
+            require(isinstance(repo["badge_color"], str) and re.fullmatch(r"[0-9A-Fa-f]{6}", repo["badge_color"]), "badge_color must be six hex digits")
         name = text(repo["repository"], "repository")
         require(REPO.fullmatch(name) and name.lower() not in repositories, "Invalid or duplicate repository")
         require(name.split("/")[0].lower() != config["username"].lower(), "User-owned repositories are not upstream contributions")
@@ -350,7 +352,13 @@ def render(config, branch, snapshots):
             star_text = f"~{(stars + 500) // 1000}k" if stars >= 1000 else str(stars)
             star_label = f" <sub>({star_text}&nbsp;⭐)</sub>" if config["show_stars"] else ""
             project = f'[{markdown(repo["display_name"])}]({metadata["html_url"]}) {logo}{star_label}'
-            lines.append(project)
+            home_project = project
+            if "badge_color" in repo:
+                badge_text = repo["display_name"].replace("_", "__").replace("-", "--")
+                badge_url = f"https://img.shields.io/badge/{urllib.parse.quote(badge_text, safe='')}-{repo['badge_color']}?style=flat"
+                badge = f'![{markdown(repo["display_name"])}]({badge_url})'
+                home_project = f'[{badge}]({metadata["html_url"]}) {logo}{star_label}'
+            lines.append(home_project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
         if adopted and unit == "commit":
