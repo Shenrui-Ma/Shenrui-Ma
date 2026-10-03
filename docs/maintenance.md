@@ -18,7 +18,7 @@ python scripts/update_contributions.py --write
 ```
 
 The dry run queries GitHub and prints a diff without modifying files. The write mode
-updates only the marked block in `README.md` and `CONTRIBUTIONS.md`, after all upstream
+updates only the marked blocks in `README.md` and `CONTRIBUTIONS.md`, after all upstream
 checks succeed. Neither mode runs Git commands. Identical generated content leaves
 files unchanged. API/search failures preserve the last successful files and exit
 with an error. No cached or example counts replace a failed live query.
@@ -172,3 +172,18 @@ generated transparency variant; do not restore the old avatar during refreshes.
 
 Contribution-project logos are displayed at 20px via `logo_size`; platform-account
 logos stay at 20px. Star annotations are refreshed together with accepted contributions.
+
+## Personal repository star total
+
+The top-right `☆` total is managed between `own-stars:start` and `own-stars:end`.
+It sums `stargazers_count` across every page of the public repositories owned by
+`username`; archived repositories still count. The owner selected
+`own_stars.include_forks: true`: stars received by their own forks count, but stars
+on the upstream source repositories do not. Set this option to `false` to exclude forks. Private repositories and upstream projects owned by other users
+are never included. The link opens the owner’s repository list. The exact total is
+shown with thousands separators; no filled star emoji is used for this indicator.
+
+The existing refresh command updates this total together with contribution records.
+Missing markers, invalid counts, duplicate repositories, or API errors prevent all
+file writes, preserving the last successful snapshot. This configuration does not
+enable the separately gated scheduled workflow.

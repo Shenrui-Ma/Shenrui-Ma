@@ -18,6 +18,8 @@ import urllib.request
 
 START = "<!-- contributions:start -->"
 END = "<!-- contributions:end -->"
+OWN_START = "<!-- own-stars:start -->"
+OWN_END = "<!-- own-stars:end -->"
 SHA = re.compile(r"[0-9a-f]{40}\Z")
 REPO = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
 
@@ -47,7 +49,7 @@ def exact_keys(value, required, optional=()):
 
 
 def validate_config(config, root):
-    exact_keys(config, ("version", "username", "profile_repository", "sort_by", "show_stars", "logo_size", "repositories", "confirmed_adoptions"))
+    exact_keys(config, ("version", "username", "profile_repository", "sort_by", "show_stars", "logo_size", "repositories", "confirmed_adoptions"), ("own_stars",))
     require(type(config["version"]) is int and config["version"] == 1, "Unsupported config version")
     require(isinstance(config["username"], str) and re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})", config["username"]), "Invalid username")
     require(isinstance(config["profile_repository"], str) and REPO.fullmatch(config["profile_repository"]), "Invalid profile_repository")
@@ -55,6 +57,9 @@ def validate_config(config, root):
     require(config["sort_by"] == "stars_desc" and type(config["show_stars"]) is bool, "Use stars_desc and a boolean show_stars")
     require(type(config["logo_size"]) is int and 18 <= config["logo_size"] <= 25, "logo_size must be 18–25")
     require(isinstance(config["repositories"], list) and config["repositories"], "No repositories configured")
+    if "own_stars" in config:
+        exact_keys(config["own_stars"], ("include_forks",))
+        require(type(config["own_stars"]["include_forks"]) is bool, "include_forks must be boolean")
     repositories, anchors = set(), set()
     for repo in config["repositories"]:
         exact_keys(repo, ("repository", "display_name", "anchor", "logo"), ("logo_dark", "adopted_unit"))
@@ -135,7 +140,7 @@ class GitHub:
             try:
                 with self.opener(urllib.request.Request(url, headers=headers), timeout=30) as response:
                     result = json.load(response)
-                require(isinstance(result, dict), "GitHub API returned a non-object response")
+                require(isinstance(result, (dict, list)), "GitHub API returned neither an object nor a list")
                 self.cache[url] = result
                 return result
             except urllib.error.HTTPError as error:
@@ -147,6 +152,34 @@ class GitHub:
                     raise VerificationError(f"GitHub API failed after 3 attempts: {path} ({type(error).__name__})") from error
             self.sleep(2 ** attempt)
         raise AssertionError("Unreachable")
+
+
+def owned_repository_stars(api, username, include_forks=False):
+    """Sum stars on public repositories owned by this user, across every page."""
+    total, seen = 0, set()
+    for page in range(1, 1001):
+        repos = api.get(f"/users/{username}/repos", type="owner", sort="full_name",
+                        direction="asc", per_page=100, page=page)
+        require(isinstance(repos, list) and len(repos) <= 100, "Invalid owned repository page")
+        for repo in repos:
+            require(isinstance(repo, dict), "Invalid owned repository")
+            name = repo.get("full_name")
+            require(isinstance(name, str) and REPO.fullmatch(name) and
+                    name.split("/")[0].lower() == username.lower() and
+                    (repo.get("owner") or {}).get("login", "").lower() == username.lower(),
+                    "Repository owner does not match")
+            require(positive_int(repo.get("id")) and repo["id"] not in seen,
+                    "Missing or duplicate owned repository")
+            seen.add(repo["id"])
+            require(repo.get("private") is False and type(repo.get("fork")) is bool,
+                    "Expected a public repository with explicit fork status")
+            stars = repo.get("stargazers_count")
+            require(type(stars) is int and stars >= 0, "Invalid owned repository star count")
+            if include_forks or not repo["fork"]:
+                total += stars
+        if len(repos) < 100:
+            return total
+    raise VerificationError("Owned repository pagination exceeds safety limit")
 
 
 def repository_metadata(api, repository):
@@ -334,10 +367,10 @@ def render(config, branch, snapshots):
     return render_contribution_list(lines), "\n".join(details).rstrip() + "\n"
 
 
-def replace_block(readme, block):
-    require(readme.count(START) == 1 and readme.count(END) == 1 and readme.index(START) < readme.index(END), "README needs exactly one correctly ordered contribution marker pair")
-    start = readme.index(START) + len(START)
-    return readme[:start] + "\n" + block + "\n" + readme[readme.index(END):]
+def replace_block(readme, block, start_marker=START, end_marker=END):
+    require(readme.count(start_marker) == 1 and readme.count(end_marker) == 1 and readme.index(start_marker) < readme.index(end_marker), "README needs exactly one correctly ordered marker pair")
+    start = readme.index(start_marker) + len(start_marker)
+    return readme[:start] + "\n" + block + "\n" + readme[readme.index(end_marker):]
 
 
 def read_exact(path):
@@ -390,9 +423,20 @@ def run(root, api, write=False, profile_branch=None):
     require(originals[readme_path] is not None, "README.md is missing")
     readme = originals[readme_path].decode("utf-8")
     replace_block(readme, "")  # Validate the user's document before network access.
+    if "own_stars" in config:
+        replace_block(readme, "", OWN_START, OWN_END)
     branch, snapshots = collect(api, config, profile_branch)
     block, details = render(config, branch, snapshots)
-    changes = {readme_path: replace_block(readme, block), details_path: details}
+    updated_readme = replace_block(readme, block)
+    if "own_stars" in config:
+        include_forks = config["own_stars"]["include_forks"]
+        total = owned_repository_stars(api, config["username"], include_forks)
+        scope = "Public repository stars" if include_forks else "Public non-fork repository stars"
+        target = github_url(config["username"]) + "?tab=repositories"
+        own_block = f'<div align="right"><a href="{target}" title="{scope}"><strong>☆ {total:,}</strong></a></div>'
+        updated_readme = replace_block(updated_readme, own_block, OWN_START, OWN_END)
+        print(f'Owned public repository stars: {total} (include_forks={include_forks})', file=sys.stderr)
+    changes = {readme_path: updated_readme, details_path: details}
     for snapshot in snapshots:
         count, unit = adopted_count(snapshot)
         print(f'{snapshot["metadata"]["full_name"]}: stars={snapshot["metadata"]["stargazers_count"]} merged={len(snapshot["merged"])} PR(s) adopted={count} {unit}(s) adopted_source_prs={len(snapshot["adopted"])} default_head={snapshot["head"] or "not needed"}', file=sys.stderr)

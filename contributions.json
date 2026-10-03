@@ -71,5 +71,8 @@
         }
       ]
     }
-  ]
+  ],
+  "own_stars": {
+    "include_forks": true
+  }
 }

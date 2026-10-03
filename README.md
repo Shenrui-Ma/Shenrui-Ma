@@ -1,3 +1,7 @@
+<!-- own-stars:start -->
+<div align="right"><a href="https://github.com/Shenrui-Ma?tab=repositories" title="Public repository stars"><strong>☆ 59</strong></a></div>
+<!-- own-stars:end -->
+
 # Hi! 👋I'm Shenrui
 
 <h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>

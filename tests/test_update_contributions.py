@@ -36,6 +36,11 @@ def configuration(adoptions=None):
     return {"version": 1, "username": "Person", "profile_repository": "Person/Person", "sort_by": "stars_desc", "show_stars": False, "logo_size": 18, "repositories": [{"repository": REPO, "display_name": "Project", "anchor": "project", "logo": "assets/logos/project.png"}], "confirmed_adoptions": adoptions or []}
 
 
+def owned_repo(number, stars=1, fork=False):
+    return {"id": number, "full_name": f"Person/project{number}", "owner": {"login": "Person"},
+            "private": False, "fork": fork, "stargazers_count": stars}
+
+
 class FakeAPI:
     def __init__(self, pulls=None, adoptions=False):
         self.calls = []
@@ -57,6 +62,8 @@ class FakeAPI:
 
     def get(self, path, **params):
         self.calls.append((path, params))
+        if path == "/users/Person/repos":
+            return copy.deepcopy(self.owned_pages[params["page"] - 1])
         result = self.pages[params["page"] - 1] if path == "/search/issues" else self.data[path]
         if isinstance(result, Exception):
             raise result
@@ -119,6 +126,40 @@ class FixtureTests(unittest.TestCase):
         result = self.run_generator(FakeAPI([pr(), pr(2)]))
         self.assertEqual(before, (path.read_bytes(), path.stat().st_mtime_ns))
         self.assertIn("[2 merged]", result[self.root / "CONTRIBUTIONS.md"])
+
+    def test_owned_stars_updates_only_its_marker_and_preserves_outline_symbol(self):
+        self.config["own_stars"] = {"include_forks": False}
+        old = u.OWN_START + "\nold total\n" + u.OWN_END + "\n" + self.original
+        (self.root / "README.md").write_text(old)
+        api = FakeAPI([pr()])
+        api.owned_pages = [[owned_repo(1, 53), owned_repo(2, 99, True)]]
+        result = self.run_generator(api)
+        readme = result[self.root / "README.md"]
+        self.assertIn('align="right"', readme)
+        self.assertIn('☆ 53', readme)
+        self.assertNotIn('☆ 152', readme)
+        self.assertEqual(readme.split(u.OWN_END)[1].split(u.START)[0],
+                         old.split(u.OWN_END)[1].split(u.START)[0])
+        self.config["own_stars"]["include_forks"] = True
+        self.assertIn('☆ 152', self.run_generator(api)[self.root / "README.md"])
+
+    def test_owned_stars_missing_marker_fails_before_network(self):
+        self.config["own_stars"] = {"include_forks": False}
+        api = FakeAPI([pr()])
+        with self.assertRaises(u.VerificationError):
+            self.run_generator(api)
+        self.assertEqual(api.calls, [])
+        self.assert_unchanged()
+
+    def test_owned_stars_bad_data_preserves_both_files(self):
+        self.config["own_stars"] = {"include_forks": False}
+        old = u.OWN_START + "\n☆ 53\n" + u.OWN_END + "\n" + self.original
+        (self.root / "README.md").write_text(old)
+        api = FakeAPI([pr()]); api.owned_pages = [[owned_repo(1, -1)]]
+        with self.assertRaises(u.VerificationError):
+            self.run_generator(api)
+        self.assertEqual((self.root / "README.md").read_bytes().decode(), old)
+        self.assertEqual((self.root / "CONTRIBUTIONS.md").read_text(), "previous details\n")
 
     def test_closed_unmerged_search_hit_is_not_accepted(self):
         with self.assertRaises(u.VerificationError):
@@ -467,6 +508,33 @@ class FixtureTests(unittest.TestCase):
         self.assertEqual(outside.read_text(), "untouched")
 
 
+class OwnedStarsTests(unittest.TestCase):
+    def test_all_pages_and_fork_filter(self):
+        api = FakeAPI()
+        api.owned_pages = [[owned_repo(i) for i in range(1, 101)],
+                           [owned_repo(101, 7), owned_repo(102, 100, True)]]
+        self.assertEqual(u.owned_repository_stars(api, "Person"), 107)
+        self.assertEqual(u.owned_repository_stars(api, "Person", True), 207)
+        api.owned_pages = [[]]
+        self.assertEqual(u.owned_repository_stars(api, "Person"), 0)
+
+    def test_invalid_or_duplicate_repository_fails(self):
+        bad = [{}, owned_repo(1, True), owned_repo(1, -1),
+               dict(owned_repo(1), private=True), dict(owned_repo(1), fork="false"),
+               dict(owned_repo(1), full_name="Someone/else"),
+               dict(owned_repo(1), owner={"login": "Someone"})]
+        for repo in bad:
+            api = FakeAPI(); api.owned_pages = [[repo]]
+            with self.subTest(repo=repo), self.assertRaises(u.VerificationError):
+                u.owned_repository_stars(api, "Person")
+        api = FakeAPI(); api.owned_pages = [[owned_repo(1), owned_repo(1)]]
+        with self.assertRaises(u.VerificationError):
+            u.owned_repository_stars(api, "Person")
+        api.owned_pages = [{"message": "API error"}]
+        with self.assertRaises(u.VerificationError):
+            u.owned_repository_stars(api, "Person")
+
+
 class TransportTests(unittest.TestCase):
     def test_url_encoded_query_timeout_token_and_cache(self):
         calls = []
@@ -503,6 +571,10 @@ class TransportTests(unittest.TestCase):
             with self.assertRaises(u.VerificationError):
                 u.GitHub(opener=opener, sleep=lambda _: self.fail("unexpected retry")).get("/repos/A/B")
             self.assertEqual(len(attempts), 1)
+
+    def test_repository_list_transport(self):
+        api = u.GitHub(opener=lambda request, timeout: io.BytesIO(b"[]"))
+        self.assertEqual(api.get("/users/Person/repos"), [])
 
     def test_invalid_json_recovers_on_retry(self):
         responses = iter([b"invalid", b'{"ok": true}'])
