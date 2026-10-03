@@ -148,6 +148,30 @@ class FixtureTests(unittest.TestCase):
         self.config["own_stars"]["include_forks"] = True
         self.assertIn('☆ 152', self.run_generator(api)[self.root / "README.md"])
 
+    def test_star_display_can_be_hidden_and_restored_without_losing_counts(self):
+        self.config["own_stars"] = {"include_forks": True, "show": False}
+        self.config["show_stars"] = False
+        old = u.OWN_START + "\nold total\n" + u.OWN_END + "\n" + self.original
+        (self.root / "README.md").write_text(old)
+        api = FakeAPI([pr()]); api.owned_pages = [[owned_repo(1, 53), owned_repo(2, 6, True)]]
+        result = self.run_generator(api)
+        self.assertNotIn("☆", result[self.root / "README.md"])
+        self.assertNotIn("⭐", result[self.root / "README.md"])
+        self.assertNotIn("⭐", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertIn("[1 merged]", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertIn(u.OWN_START + "\n\n" + u.OWN_END, result[self.root / "README.md"])
+        self.assertIn("☆ 59", result[self.root / u.OWN_STAR_ASSETS[0]])
+        self.config["own_stars"]["show"] = True
+        self.config["show_stars"] = True
+        restored = self.run_generator(api)
+        self.assertIn("☆ 59", restored[self.root / "README.md"])
+        self.assertIn("⭐", restored[self.root / "README.md"])
+
+    def test_own_star_display_flag_must_be_boolean(self):
+        self.config["own_stars"] = {"include_forks": True, "show": "false"}
+        with self.assertRaises(u.VerificationError):
+            u.validate_config(self.config, self.root)
+
     def test_owned_stars_missing_marker_fails_before_network(self):
         self.config["own_stars"] = {"include_forks": False}
         api = FakeAPI([pr()])

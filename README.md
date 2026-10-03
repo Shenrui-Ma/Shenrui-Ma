@@ -2,7 +2,7 @@
 
 <h3>
 <!-- own-stars:start -->
-<a href="https://github.com/Shenrui-Ma?tab=repositories" title="Public repository stars"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/own-stars-dark.svg?total=59"><img align="right" width="48" height="24" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/own-stars.svg?total=59" alt="☆ 59"></picture></a>
+
 <!-- own-stars:end -->
 📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
 
@@ -13,10 +13,10 @@
 <!-- contributions:start -->
 <h3>
 
-- [![OpenClaw](https://img.shields.io/badge/OpenClaw-B74747?style=flat)](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub>
-- [![Hermes Agent](https://img.shields.io/badge/Hermes%20Agent-596579?style=flat)](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~251k&nbsp;⭐)</sub>
-- [![CodexBar](https://img.shields.io/badge/CodexBar-397D73?style=flat)](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub>
-- [![ASu\-skills](https://img.shields.io/badge/ASu--skills-6265A8?style=flat)](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub>
+- [![OpenClaw](https://img.shields.io/badge/OpenClaw-B74747?style=flat)](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo">
+- [![Hermes Agent](https://img.shields.io/badge/Hermes%20Agent-596579?style=flat)](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture>
+- [![CodexBar](https://img.shields.io/badge/CodexBar-397D73?style=flat)](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo">
+- [![ASu\-skills](https://img.shields.io/badge/ASu--skills-6265A8?style=flat)](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo">
 - …
 
 </h3>

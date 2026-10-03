@@ -204,3 +204,12 @@ Badge names are URL-encoded with Shields.io escaping for hyphens and underscores
 The badges load from `img.shields.io`; alternative text retains the project name
 if the external image is unavailable. No package dependency or scheduler change
 is needed for this styling.
+
+## Temporarily hidden star counts
+
+Per owner preference, `show_stars: false` hides project star annotations in both
+the homepage and the detail summary. `own_stars.show: false` hides the personal
+total next to the biography. The count functions, fork inclusion preference,
+owned-star SVG assets and star-based project ordering are retained. Manual
+refreshes still maintain the counts; restore either display by setting its flag
+to `true`. Scheduled updates remain disabled pending separate approval.

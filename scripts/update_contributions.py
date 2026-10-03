@@ -59,8 +59,9 @@ def validate_config(config, root):
     require(type(config["logo_size"]) is int and 18 <= config["logo_size"] <= 25, "logo_size must be 18–25")
     require(isinstance(config["repositories"], list) and config["repositories"], "No repositories configured")
     if "own_stars" in config:
-        exact_keys(config["own_stars"], ("include_forks",))
+        exact_keys(config["own_stars"], ("include_forks",), ("show",))
         require(type(config["own_stars"]["include_forks"]) is bool, "include_forks must be boolean")
+        require(type(config["own_stars"].get("show", True)) is bool, "own_stars.show must be boolean")
     repositories, anchors = set(), set()
     for repo in config["repositories"]:
         exact_keys(repo, ("repository", "display_name", "anchor", "logo"), ("logo_dark", "adopted_unit", "badge_color"))
@@ -465,6 +466,8 @@ def run(root, api, write=False, profile_branch=None):
                      f'<source media="(prefers-color-scheme: dark)" srcset="{raw}{OWN_STAR_ASSETS[1]}?total={total}">'
                      f'<img align="right" width="{width}" height="24" src="{raw}{OWN_STAR_ASSETS[0]}?total={total}" '
                      f'alt="☆ {total:,}"></picture></a>')
+        if not config["own_stars"].get("show", True):
+            own_block = ""
         updated_readme = replace_block(updated_readme, own_block, OWN_START, OWN_END)
         print(f'Owned public repository stars: {total} (include_forks={include_forks})', file=sys.stderr)
     changes = {readme_path: updated_readme, details_path: details, **badge_changes}
