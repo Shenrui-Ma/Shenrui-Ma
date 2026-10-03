@@ -3,7 +3,8 @@
 <h3>
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~250k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~251k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
 
@@ -36,6 +37,12 @@ Merged PRs include all upstream target branches; each target branch is listed be
   - Landing commits: [`6973f2622d7c`](https://github.com/NousResearch/hermes-agent/commit/6973f2622d7c9bf6caee7d3e0c6777d54f0f64c9), [`4521e04add66`](https://github.com/NousResearch/hermes-agent/commit/4521e04add661eb4f3628be2ebbaa7b4ad5abae7).
   - [Source evidence](https://github.com/NousResearch/hermes-agent/pull/112265): “Salvages \#107337 \(@Shenrui\-Ma\) — both commits cherry\-picked \(fix \+ evals alignment\)”
   - [Attribution evidence](https://github.com/NousResearch/hermes-agent/pull/112265): “@Shenrui\-Ma”
+
+<a id="codexbar"></a>
+## [CodexBar](https://github.com/steipete/CodexBar)
+
+- [#4175: Fix stale provider status after overlapping refreshes](https://github.com/steipete/CodexBar/pull/4175) — Merged into **main** on 2026\-10\-03.
+  - [Recorded merge commit `7dedb5bdac76`](https://github.com/steipete/CodexBar/commit/7dedb5bdac765bbe7f63371eee5848a848496196). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 
 <a id="asu-skills"></a>
 ## [ASu\-skills](https://github.com/Hisn00w/ASu-skills)

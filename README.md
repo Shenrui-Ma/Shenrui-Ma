@@ -10,7 +10,8 @@
 <h3>
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub>
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~250k&nbsp;⭐)</sub>
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~251k&nbsp;⭐)</sub>
+- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub>
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub>
 - …
 

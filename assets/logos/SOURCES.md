@@ -191,3 +191,37 @@ SOFTWARE.
 - Archive member: `中国科学院大学标准Logo下载/国科大标准Logo/中国科学院院徽.png`. The university officially provides this CAS seal in its standard logo archive.
 - The official page retains copyright in the academy/university, requires approval or authorization outside reasonable-use exceptions, and explicitly mentions personal study and classroom teaching. No separate license or university approval is asserted here. See the linked source statement. The mark identifies the owner-supplied academic affiliation; it is not an endorsement claim.
 - Display backdrop: a white circle behind the unchanged transparent image keeps the original blue seal readable on dark backgrounds.
+
+## CodexBar
+
+- Verified on 2026-10-03; used for the owner's accepted upstream contribution.
+- Local file: `codexbar.png`, displayed at 20 × 20 CSS pixels, unchanged original bytes.
+- Official source: [CodexBar app icon](https://github.com/steipete/CodexBar/blob/50ce15d2b1ad526356475f2ce1d7001e9812443e/docs/icon.png).
+- Upstream commit: `50ce15d2b1ad526356475f2ce1d7001e9812443e`.
+- Git blob SHA: `11da02f4f4ac8d4cd8dcc159e6a2f0074d826b7f`.
+- SHA-256: `54cf6ac4663c7b341a085493e787815949c5680e5cb58bda865f8a2c5aab24b1`.
+- Source repository [license](https://github.com/steipete/CodexBar/blob/50ce15d2b1ad526356475f2ce1d7001e9812443e/LICENSE): MIT. No separate trademark permission or endorsement is asserted.
+
+```text
+MIT License
+
+Copyright (c) 2026 Peter Steinberger
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

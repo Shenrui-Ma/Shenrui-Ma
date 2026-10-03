@@ -21,6 +21,12 @@
       "adopted_unit": "commits"
     },
     {
+      "repository": "steipete/CodexBar",
+      "display_name": "CodexBar",
+      "anchor": "codexbar",
+      "logo": "assets/logos/codexbar.png"
+    },
+    {
       "repository": "Hisn00w/ASu-skills",
       "display_name": "ASu-skills",
       "anchor": "asu-skills",
