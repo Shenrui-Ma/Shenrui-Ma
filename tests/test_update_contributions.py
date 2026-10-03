@@ -138,6 +138,11 @@ class FixtureTests(unittest.TestCase):
         self.assertIn('align="right"', readme)
         self.assertIn('☆ 53', readme)
         self.assertNotIn('☆ 152', readme)
+        self.assertIn('alt="☆ 53"', readme)
+        for asset in u.OWN_STAR_ASSETS:
+            self.assertIn("☆ 53", result[self.root / asset])
+        self.assertIn("#0969da", result[self.root / u.OWN_STAR_ASSETS[0]])
+        self.assertIn("#4493f8", result[self.root / u.OWN_STAR_ASSETS[1]])
         self.assertEqual(readme.split(u.OWN_END)[1].split(u.START)[0],
                          old.split(u.OWN_END)[1].split(u.START)[0])
         self.config["own_stars"]["include_forks"] = True

@@ -1,10 +1,10 @@
-<!-- own-stars:start -->
-<div align="right"><a href="https://github.com/Shenrui-Ma?tab=repositories" title="Public repository stars"><strong>☆ 59</strong></a></div>
-<!-- own-stars:end -->
-
 # Hi! 👋I'm Shenrui
 
-<h3>📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
+<h3>
+<!-- own-stars:start -->
+<a href="https://github.com/Shenrui-Ma?tab=repositories" title="Public repository stars"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/own-stars-dark.svg?total=59"><img align="right" width="48" height="24" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/own-stars.svg?total=59" alt="☆ 59"></picture></a>
+<!-- own-stars:end -->
+📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
 
 <picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-marks-close.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-marks-close.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/closure-affiliations-wide-marks-close.svg" width="460" hspace="0" alt="CASIA and UCAS logos beside Closure"></picture>
 

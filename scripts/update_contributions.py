@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify public contribution evidence and deterministically update two Markdown files."""
+"""Verify public contribution evidence and deterministically update the profile and star badges."""
 
 import argparse
 import difflib
@@ -20,6 +20,7 @@ START = "<!-- contributions:start -->"
 END = "<!-- contributions:end -->"
 OWN_START = "<!-- own-stars:start -->"
 OWN_END = "<!-- own-stars:end -->"
+OWN_STAR_ASSETS = ("assets/own-stars.svg", "assets/own-stars-dark.svg")
 SHA = re.compile(r"[0-9a-f]{40}\Z")
 REPO = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
 
@@ -152,6 +153,18 @@ class GitHub:
                     raise VerificationError(f"GitHub API failed after 3 attempts: {path} ({type(error).__name__})") from error
             self.sleep(2 ** attempt)
         raise AssertionError("Unreachable")
+
+
+def render_owned_star_badges(total):
+    label = f"☆ {total:,}"
+    width = max(48, 16 + 9 * len(f"{total:,}"))
+    badges = {}
+    for path, color in zip(OWN_STAR_ASSETS, ("#0969da", "#4493f8")):
+        badges[path] = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="24" '
+                        f'viewBox="0 0 {width} 24" role="img" aria-label="{label}">'
+                        f'<text x="{width}" y="17" text-anchor="end" font-family="Arial, sans-serif" '
+                        f'font-size="14" font-weight="600" fill="{color}">{label}</text></svg>\n')
+    return width, badges
 
 
 def owned_repository_stars(api, username, include_forks=False):
@@ -418,8 +431,11 @@ def write_files(changes, expected=None):
 def run(root, api, write=False, profile_branch=None):
     config = validate_config(json.loads(read_exact(root / "contributions.json")), root)
     readme_path, details_path = root / "README.md", root / "CONTRIBUTIONS.md"
-    require(not readme_path.is_symlink() and not details_path.is_symlink(), "Generated Markdown paths must not be symlinks")
-    originals = {path: path.read_bytes() if path.exists() else None for path in (readme_path, details_path)}
+    output_paths = [readme_path, details_path]
+    if "own_stars" in config:
+        output_paths.extend(root / path for path in OWN_STAR_ASSETS)
+    require(all(not path.is_symlink() and path.resolve().is_relative_to(root.resolve()) for path in output_paths), "Generated output paths must stay within the project and must not be symlinks")
+    originals = {path: path.read_bytes() if path.exists() else None for path in output_paths}
     require(originals[readme_path] is not None, "README.md is missing")
     readme = originals[readme_path].decode("utf-8")
     replace_block(readme, "")  # Validate the user's document before network access.
@@ -428,15 +444,22 @@ def run(root, api, write=False, profile_branch=None):
     branch, snapshots = collect(api, config, profile_branch)
     block, details = render(config, branch, snapshots)
     updated_readme = replace_block(readme, block)
+    badge_changes = {}
     if "own_stars" in config:
         include_forks = config["own_stars"]["include_forks"]
         total = owned_repository_stars(api, config["username"], include_forks)
         scope = "Public repository stars" if include_forks else "Public non-fork repository stars"
         target = github_url(config["username"]) + "?tab=repositories"
-        own_block = f'<div align="right"><a href="{target}" title="{scope}"><strong>☆ {total:,}</strong></a></div>'
+        width, badges = render_owned_star_badges(total)
+        badge_changes = {root / path: svg for path, svg in badges.items()}
+        raw = f"https://raw.githubusercontent.com/{config['profile_repository']}/{urllib.parse.quote(branch, safe='')}/"
+        own_block = (f'<a href="{target}" title="{scope}"><picture>'
+                     f'<source media="(prefers-color-scheme: dark)" srcset="{raw}{OWN_STAR_ASSETS[1]}?total={total}">'
+                     f'<img align="right" width="{width}" height="24" src="{raw}{OWN_STAR_ASSETS[0]}?total={total}" '
+                     f'alt="☆ {total:,}"></picture></a>')
         updated_readme = replace_block(updated_readme, own_block, OWN_START, OWN_END)
         print(f'Owned public repository stars: {total} (include_forks={include_forks})', file=sys.stderr)
-    changes = {readme_path: updated_readme, details_path: details}
+    changes = {readme_path: updated_readme, details_path: details, **badge_changes}
     for snapshot in snapshots:
         count, unit = adopted_count(snapshot)
         print(f'{snapshot["metadata"]["full_name"]}: stars={snapshot["metadata"]["stargazers_count"]} merged={len(snapshot["merged"])} PR(s) adopted={count} {unit}(s) adopted_source_prs={len(snapshot["adopted"])} default_head={snapshot["head"] or "not needed"}', file=sys.stderr)

@@ -18,7 +18,7 @@ python scripts/update_contributions.py --write
 ```
 
 The dry run queries GitHub and prints a diff without modifying files. The write mode
-updates only the marked blocks in `README.md` and `CONTRIBUTIONS.md`, after all upstream
+updates the marked blocks in `README.md`, `CONTRIBUTIONS.md`, and the two own-star SVGs, after all upstream
 checks succeed. Neither mode runs Git commands. Identical generated content leaves
 files unchanged. API/search failures preserve the last successful files and exit
 with an error. No cached or example counts replace a failed live query.
@@ -86,7 +86,7 @@ profile in light/dark appearances; the local HTML preview is only layout evidenc
 To suspend writes, remove the variable or set it to `false`.
 
 The job tests offline before fetching live data, has a ten-minute timeout, and
-serializes manual/scheduled runs. It stages only `README.md` and `CONTRIBUTIONS.md`,
+serializes manual/scheduled runs. It stages only `README.md`, `CONTRIBUTIONS.md`, and the two generated own-star SVGs,
 uses the GitHub Actions bot, and commits only changed content. It never force-pushes,
 rebases, changes other repositories, or modifies your biography, configuration or logos.
 Official action commits were resolved from the v6.1.0 checkout and v6.3.0 setup-python
@@ -187,3 +187,8 @@ The existing refresh command updates this total together with contribution recor
 Missing markers, invalid counts, duplicate repositories, or API errors prevent all
 file writes, preserving the last successful snapshot. This configuration does not
 enable the separately gated scheduled workflow.
+
+The owned-star indicator floats on the right inside the biography heading below
+the greeting. `assets/own-stars.svg` and `assets/own-stars-dark.svg` render the same
+verified count in light and dark themes; their updates are atomic with the Markdown.
+The readme alt text retains the literal outlined-star count.
