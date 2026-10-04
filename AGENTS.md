@@ -17,3 +17,9 @@ When maintaining this profile or recording accepted contributions:
   explicit request; a rewrite does not establish that GitHub removed its event.
 
 The aim is to avoid automatic upstream timeline entries caused by profile updates.
+
+## Star display preference
+
+- Show stars beside the upstream projects (`show_stars: true`).
+- Hide only the owner's personal repository star total (`own_stars.show: false`).
+- Keep automatic updates disabled unless explicitly requested.

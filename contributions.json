@@ -3,7 +3,7 @@
   "username": "Shenrui-Ma",
   "profile_repository": "Shenrui-Ma/Shenrui-Ma",
   "sort_by": "stars_desc",
-  "show_stars": false,
+  "show_stars": true,
   "logo_size": 20,
   "repositories": [
     {
