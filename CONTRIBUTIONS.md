@@ -4,6 +4,7 @@
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
 - [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
@@ -37,6 +38,12 @@ Merged PRs include all upstream target branches; each target branch is listed be
   - Landing commits: [`6973f2622d7c`](https://github.com/NousResearch/hermes-agent/commit/6973f2622d7c9bf6caee7d3e0c6777d54f0f64c9), [`4521e04add66`](https://github.com/NousResearch/hermes-agent/commit/4521e04add661eb4f3628be2ebbaa7b4ad5abae7).
   - [Source evidence](https://github.com/NousResearch/hermes-agent/pull/112265): “Salvages \#107337 \(@Shenrui\-Ma\) — both commits cherry\-picked \(fix \+ evals alignment\)”
   - [Attribution evidence](https://github.com/NousResearch/hermes-agent/pull/112265): “@Shenrui\-Ma”
+
+<a id="pnpm"></a>
+## [pnpm](https://github.com/pnpm/pnpm)
+
+- [#16471: fix\(filter\): preserve git filenames in changed\-project selection](https://github.com/pnpm/pnpm/pull/16471) — Merged into **main** on 2026\-10\-03.
+  - [Recorded merge commit `efbe96f343cb`](https://github.com/pnpm/pnpm/commit/efbe96f343cbf8a50ed7ed7cccc1fa291a49c95b). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 
 <a id="codexbar"></a>
 ## [CodexBar](https://github.com/steipete/CodexBar)

@@ -225,3 +225,48 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## pnpm
+
+Verified on 2026-10-04. The official no-text marks are copied unchanged and
+displayed at 20 × 20 CSS pixels. The standard mark is used on light backgrounds;
+the light mark is used on dark backgrounds.
+
+- Local file: `pnpm.svg`.
+  - [Official source](https://github.com/pnpm/pnpm/blob/bac8077715ac5af3857b1df970a014875d89b86c/pnpm/docs/static/img/logos/pnpm-standard-no-text.svg).
+  - Upstream commit: `bac8077715ac5af3857b1df970a014875d89b86c`.
+  - Git blob SHA: `d60132a0571c1585e728470e9a2bbd58cfbcd129`.
+  - SHA-256: `94a665893839b1e13325df98ceb40fd5193b6c56ba695abd415677f493e9fb5c`.
+
+- Local file: `pnpm-dark.svg`.
+  - [Official source](https://github.com/pnpm/pnpm/blob/bac8077715ac5af3857b1df970a014875d89b86c/pnpm/docs/static/img/logos/pnpm-light-no-text.svg).
+  - Upstream commit: `bac8077715ac5af3857b1df970a014875d89b86c`.
+  - Git blob SHA: `0286ac9022238e7e84d6a96967e839f0ce4937c4`.
+  - SHA-256: `803a44f9ad010770ee3de60a629852b5aecebb7a9657a95bf777351d0f38f8eb`.
+
+Repository license: MIT. No separate trademark permission or endorsement is asserted.
+
+```text
+The MIT License (MIT)
+
+Copyright (c) 2015-2016 Rico Sta. Cruz and other contributors
+Copyright (c) 2016-2026 Zoltan Kochan and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

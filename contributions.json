@@ -23,6 +23,14 @@
       "badge_color": "596579"
     },
     {
+      "repository": "pnpm/pnpm",
+      "display_name": "pnpm",
+      "anchor": "pnpm",
+      "logo": "assets/logos/pnpm.svg",
+      "logo_dark": "assets/logos/pnpm-dark.svg",
+      "badge_color": "9B7419"
+    },
+    {
       "repository": "steipete/CodexBar",
       "display_name": "CodexBar",
       "anchor": "codexbar",
