@@ -3,9 +3,9 @@
 <h3>
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~391k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~251k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~252k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
 - [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> <sub>(~37k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
-- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
+- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~5k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
 
@@ -52,6 +52,8 @@ Merged PRs include all upstream target branches; each target branch is listed be
 
 - [#4175: Fix stale provider status after overlapping refreshes](https://github.com/steipete/CodexBar/pull/4175) — Merged into **main** on 2026\-10\-03.
   - [Recorded merge commit `7dedb5bdac76`](https://github.com/steipete/CodexBar/commit/7dedb5bdac765bbe7f63371eee5848a848496196). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
+- [#4224: fix\(settings\): preserve pending config on quit](https://github.com/steipete/CodexBar/pull/4224) — Merged into **main** on 2026\-10\-06.
+  - [Recorded merge commit `ab32496d3c1f`](https://github.com/steipete/CodexBar/commit/ab32496d3c1f861981aa1a19aee2f933204f9bb9). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 
 <a id="asu-skills"></a>
 ## [ASu\-skills](https://github.com/Hisn00w/ASu-skills)
