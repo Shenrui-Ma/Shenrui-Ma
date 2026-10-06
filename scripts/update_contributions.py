@@ -367,7 +367,7 @@ def render(config, branch, snapshots):
         if not counts:
             details.extend(["No verified accepted PRs.", ""])
         for number, pr in sorted(merged.items()):
-            details.extend([f'- [#{number}: {markdown(pr["title"])}]({pr["html_url"]}) — Merged into **{markdown(pr["base"]["ref"])}** on {markdown(pr["merged_at"][:10])}.'])
+            details.extend([f'- [#{number}: {markdown(pr["title"])}]({pr["html_url"]}) — Merged into **{markdown(pr["base"]["ref"])}**.'])
             commit = pr.get("merge_commit_sha")
             require(isinstance(commit, str) and SHA.fullmatch(commit), "Merged PR is missing its merge commit SHA")
             details.append(f'  - [Recorded merge commit `{commit[:12]}`]({github_url(metadata["full_name"], "/commit/" + commit)}). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.')

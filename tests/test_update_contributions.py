@@ -99,6 +99,8 @@ class FixtureTests(unittest.TestCase):
         result = self.run_generator(FakeAPI([pr(branch="release/v1")]))
         self.assertIn("1 merged]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertIn("release/v1", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertIn("Merged into **release/v1**.", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertNotIn("2026", result[self.root / "CONTRIBUTIONS.md"])
         self.assertNotIn(" PR]", result[self.root / "README.md"])
 
     def test_detail_summary_preserves_counts_while_home_shows_only_projects(self):

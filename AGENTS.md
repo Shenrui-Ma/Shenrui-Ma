@@ -23,3 +23,8 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 - Show stars beside the upstream projects (`show_stars: true`).
 - Hide only the owner's personal repository star total (`own_stars.show: false`).
 - Keep automatic updates disabled unless explicitly requested.
+
+## Contribution evidence presentation
+
+- Do not display merge or adoption dates in `CONTRIBUTIONS.md`.
+- Keep contribution counts, upstream target branches, and verifiable evidence links.

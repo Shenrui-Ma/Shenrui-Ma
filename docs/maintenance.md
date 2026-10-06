@@ -212,3 +212,7 @@ is hidden with `own_stars.show: false`. These are independent display settings.
 Retain counting, fork inclusion for the personal total, badge assets, and
 star-based project ordering. Scheduled updates remain disabled until the owner
 explicitly requests enabling them.
+
+The contribution details omit merge and adoption dates by owner preference.
+The verifier still checks structured merge state, including the API merge timestamp;
+only the rendered presentation suppresses dates.
