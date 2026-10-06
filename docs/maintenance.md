@@ -108,18 +108,17 @@ the next run starts from the latest default-branch head.
 ## Edit text or logos
 
 The `models` section links to the owner's Civitai profile and displays
-`1k 👤 · 41k ⬇️`. The person silhouette emoji `👤` replaces the word
-`followers`. Civitai and Bilibili metrics use the same `<sub>` styling as project
+`1k followers · 41k downloads`, using explicit text labels. Civitai and Bilibili metrics use the same `<sub>` styling as project
 star counts, separated from the platform logo by a space (no em dash). Non-breaking
-spaces keep each count beside its icon. These are manually verified snapshots outside
+spaces keep each count beside its text label. These are manually verified snapshots outside
 the GitHub contribution markers: 998 followers round to `1k`, and the displayed
-41.3k downloads round to `41k ⬇️`. The down arrow emoji `⬇️` labels downloads. For future manual refreshes use
+41.3k downloads round to `41k downloads`. For future manual refreshes use
 `floor(count / 1000 + 0.5)` and the lowercase `k` suffix. The current workflow does
 not fetch or update Civitai statistics.
 
 The `social` section links to Bilibili account `12595237` (四倍体果蝇-Ray). Its initial
 verified follower total was 14,270, read from the profile's visible follower-count
-tooltip, and is displayed as `14k 👤` using the same rounding rule. This is
+tooltip, and is displayed as `14k followers` using the same rounding rule. This is
 also a manual snapshot outside the contribution updater's managed region. Civitai
 and Bilibili logos follow their linked platform names at 20px; their provenance is
 recorded in `assets/logos/SOURCES.md`.
