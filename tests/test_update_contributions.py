@@ -218,14 +218,14 @@ class FixtureTests(unittest.TestCase):
         self.config["repositories"][0]["adopted_unit"] = "commits"
         result = self.run_generator(api)
         self.assertIn("3 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
-        self.assertIn("3 adopted commits from 2 source PRs", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertNotIn("3 adopted commits from 2 source PRs", result[self.root / "CONTRIBUTIONS.md"])
         other["landing_commits"] = [SHA1]  # Shared commit is counted once across original PRs.
         result = self.run_generator(api)
         self.assertIn("2 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
         result = self.run_generator(api)
         self.assertIn("1 merged · 1 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
-        self.assertIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
+        self.assertNotIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
 
     def test_later_merge_deduplicates_and_handles_search_index_lag(self):
         self.config = configuration([mapping()])

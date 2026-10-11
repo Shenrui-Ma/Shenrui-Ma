@@ -340,7 +340,7 @@ def render(config, branch, snapshots):
     for snapshot in snapshots:
         repo, metadata = snapshot["config"], snapshot["metadata"]
         merged, adopted = snapshot["merged"], snapshot["adopted"]
-        count, unit = adopted_count(snapshot)
+        count, _ = adopted_count(snapshot)
         accepted = [(kind, number) for kind, number in (("merged", len(merged)), ("🍒picked", count)) if number]
         counts = [f"{number} {kind}" for kind, number in accepted]
         if counts:
@@ -362,8 +362,6 @@ def render(config, branch, snapshots):
             lines.append(home_project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
-        if adopted and unit == "commit":
-            details.extend([f"{count} adopted commit{'s' if count != 1 else ''} from {len(adopted)} source PR{'s' if len(adopted) != 1 else ''} (distinct verified landing commits).", ""])
         if not counts:
             details.extend(["No verified accepted PRs.", ""])
         for number, pr in sorted(merged.items()):

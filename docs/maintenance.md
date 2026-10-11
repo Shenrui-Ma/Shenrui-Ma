@@ -216,3 +216,7 @@ explicitly requests enabling them.
 The contribution details omit merge and adoption dates by owner preference.
 The verifier still checks structured merge state, including the API merge timestamp;
 only the rendered presentation suppresses dates.
+
+Keep the counted overview and per-PR evidence, but omit the extra per-project
+"adopted commits from source PRs" explanatory sentence. The counting policy and
+verified landing commit links remain available.

@@ -30,8 +30,6 @@ Merged PRs include all upstream target branches; each target branch is listed be
 <a id="hermes-agent"></a>
 ## [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 
-3 adopted commits from 2 source PRs (distinct verified landing commits).
-
 - [#105828: fix\(config\): preserve explicit null settings when stripping defaults](https://github.com/NousResearch/hermes-agent/pull/105828) — Adopted via cherry-pick or upstream integration.
   - [Upstream integration #120343](https://github.com/NousResearch/hermes-agent/pull/120343); verified in the upstream default branch **main**.
   - Landing commits: [`93c5856bd55d`](https://github.com/NousResearch/hermes-agent/commit/93c5856bd55d757d84b58066e53438ed43a29f82).

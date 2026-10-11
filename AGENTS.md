@@ -28,3 +28,4 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 
 - Do not display merge or adoption dates in `CONTRIBUTIONS.md`.
 - Keep contribution counts, upstream target branches, and verifiable evidence links.
+- Omit the extra per-project "adopted commits from source PRs" sentence; preserve overview counts and evidence.
