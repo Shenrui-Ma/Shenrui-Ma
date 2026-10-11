@@ -220,3 +220,17 @@ only the rendered presentation suppresses dates.
 Keep the counted overview and per-PR evidence, but omit the extra per-project
 "adopted commits from source PRs" explanatory sentence. The counting policy and
 verified landing commit links remain available.
+
+## Contribution pixel blocks
+
+With `show_contribution_blocks: true`, the homepage adds a clickable green pixel
+bar after each project's star count. Each filled square is one counted accepted
+unit: merged PRs plus the configured adoption unit. Hermes retains its explicit
+commit-based adoption count. There are no empty or decorative extra squares.
+
+The bar links to that project's contribution details. Hover text and image alt
+text state the precise units. The SVGs are generated atomically with the Markdown
+at `assets/contribution-blocks-<anchor>.svg`; the update workflow stages them
+together. Twelve squares fit per row before wrapping to preserve legibility as
+counts grow. Project ordering, star display and the separate automatic-update
+gate are unchanged.

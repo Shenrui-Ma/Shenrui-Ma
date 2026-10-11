@@ -87,5 +87,6 @@
   "own_stars": {
     "include_forks": true,
     "show": false
-  }
+  },
+  "show_contribution_blocks": true
 }

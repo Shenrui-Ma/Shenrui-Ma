@@ -11,6 +11,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import urllib.error
+import xml.etree.ElementTree as ET
 
 SPEC = importlib.util.spec_from_file_location("updater", Path(__file__).resolve().parents[1] / "scripts/update_contributions.py")
 u = importlib.util.module_from_spec(SPEC)
@@ -128,6 +129,57 @@ class FixtureTests(unittest.TestCase):
         result = self.run_generator(FakeAPI([pr(), pr(2)]))
         self.assertEqual(before, (path.read_bytes(), path.stat().st_mtime_ns))
         self.assertIn("[2 merged]", result[self.root / "CONTRIBUTIONS.md"])
+
+    def test_pixel_blocks_use_merged_and_unique_adopted_units(self):
+        self.config = configuration([mapping()])
+        self.config["show_contribution_blocks"] = True
+        self.config["repositories"][0]["adopted_unit"] = "commits"
+        api = FakeAPI([pr()], adoptions=True)
+        result = self.run_generator(api)
+        asset = self.root / "assets/contribution-blocks-project.svg"
+        svg = ET.fromstring(result[asset])
+        self.assertEqual(len(svg.findall("{http://www.w3.org/2000/svg}rect")), 3)
+        self.assertEqual(svg.attrib["aria-label"], "Project: 1 merged PR, 2 adopted commits")
+        self.assertIn('title="Project: 1 merged PR, 2 adopted commits"', result[self.root / "README.md"])
+        self.assertIn('CONTRIBUTIONS.md#project', result[self.root / "README.md"])
+        self.assertNotIn("contribution-blocks", result[self.root / "CONTRIBUTIONS.md"])
+        api.data[f"/repos/{REPO}/pulls/7"] = pr(7)
+        updated = self.run_generator(api)
+        self.assertEqual(len(ET.fromstring(updated[asset]).findall("{http://www.w3.org/2000/svg}rect")), 2)
+        self.assertIn("Project: 2 merged PRs", updated[asset])
+
+    def test_pixel_blocks_show_exact_count_and_wrap_inside_bounds(self):
+        self.config["show_contribution_blocks"] = True
+        asset = self.root / "assets/contribution-blocks-project.svg"
+        for count in (0, 4, 13):
+            with self.subTest(count=count):
+                result = self.run_generator(FakeAPI([pr(i) for i in range(1, count + 1)]))
+                if not count:
+                    self.assertNotIn(asset, result)
+                    self.assertNotIn("contribution-blocks", result[self.root / "README.md"])
+                    continue
+                svg = ET.fromstring(result[asset])
+                cells = svg.findall("{http://www.w3.org/2000/svg}rect")
+                self.assertEqual(len(cells), count)
+                for cell in cells:
+                    self.assertLess(int(cell.attrib["x"]) + 10, int(svg.attrib["width"]))
+                    self.assertLess(int(cell.attrib["y"]) + 10, int(svg.attrib["height"]))
+                self.assertEqual(len({c.attrib["y"] for c in cells}), 2 if count == 13 else 1)
+                before = (asset.read_bytes(), asset.stat().st_mtime_ns)
+                self.run_generator(FakeAPI([pr(i) for i in range(1, count + 1)]))
+                self.assertEqual(before, (asset.read_bytes(), asset.stat().st_mtime_ns))
+
+    def test_pixel_block_assets_reject_symlinks_before_network(self):
+        self.config["show_contribution_blocks"] = True
+        target = self.root / "other.svg"
+        target.write_text("untouched")
+        (self.root / "assets/contribution-blocks-project.svg").symlink_to(target)
+        api = FakeAPI([pr()])
+        with self.assertRaises(u.VerificationError):
+            self.run_generator(api)
+        self.assertEqual(api.calls, [])
+        self.assertEqual(target.read_text(), "untouched")
+        self.assert_unchanged()
 
     def test_owned_stars_updates_only_its_marker_and_preserves_outline_symbol(self):
         self.config["own_stars"] = {"include_forks": False}

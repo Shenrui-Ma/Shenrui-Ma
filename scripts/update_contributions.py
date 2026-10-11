@@ -50,7 +50,7 @@ def exact_keys(value, required, optional=()):
 
 
 def validate_config(config, root):
-    exact_keys(config, ("version", "username", "profile_repository", "sort_by", "show_stars", "logo_size", "repositories", "confirmed_adoptions"), ("own_stars",))
+    exact_keys(config, ("version", "username", "profile_repository", "sort_by", "show_stars", "logo_size", "repositories", "confirmed_adoptions"), ("own_stars", "show_contribution_blocks"))
     require(type(config["version"]) is int and config["version"] == 1, "Unsupported config version")
     require(isinstance(config["username"], str) and re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})", config["username"]), "Invalid username")
     require(isinstance(config["profile_repository"], str) and REPO.fullmatch(config["profile_repository"]), "Invalid profile_repository")
@@ -62,6 +62,7 @@ def validate_config(config, root):
         exact_keys(config["own_stars"], ("include_forks",), ("show",))
         require(type(config["own_stars"]["include_forks"]) is bool, "include_forks must be boolean")
         require(type(config["own_stars"].get("show", True)) is bool, "own_stars.show must be boolean")
+    require(type(config.get("show_contribution_blocks", False)) is bool, "show_contribution_blocks must be boolean")
     repositories, anchors = set(), set()
     for repo in config["repositories"]:
         exact_keys(repo, ("repository", "display_name", "anchor", "logo"), ("logo_dark", "adopted_unit", "badge_color"))
@@ -325,6 +326,31 @@ def adopted_count(snapshot):
     return len(snapshot["adopted"]), "PR"
 
 
+def contribution_block_asset(snapshot):
+    merged = len(snapshot["merged"])
+    picked, unit = adopted_count(snapshot)
+    total = merged + picked
+    if total == 0:
+        return None
+    labels = []
+    if merged:
+        labels.append(f"{merged} merged PR{'s' if merged != 1 else ''}")
+    if picked:
+        labels.append(f"{picked} adopted {unit}{'s' if picked != 1 else ''}")
+    label = snapshot["config"]["display_name"] + ": " + ", ".join(labels)
+    columns = min(total, 12)
+    width, height = columns * 13 + 1, 20 + ((total - 1) // 12) * 13
+    squares = ''.join(f'<rect x="{2 + (i % 12) * 13}" y="{9 + (i // 12) * 13}" '
+                      'width="10" height="10" fill="#39d353" stroke="#238636" stroke-width="1"/>'
+                      for i in range(total))
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+           f'viewBox="0 0 {width} {height}" role="img" aria-label="{html.escape(label, quote=True)}" '
+           f'shape-rendering="crispEdges"><title>{html.escape(label)}</title>{squares}</svg>\n')
+    return {"path": f'assets/contribution-blocks-{snapshot["config"]["anchor"]}.svg',
+            "svg": svg, "width": width, "height": height, "label": label,
+            "version": f"{total}-{merged}-{unit.lower()}"}
+
+
 def render_contribution_list(lines):
     return "<h3>\n\n" + "\n".join(f"- {line}" for line in lines) + "\n- …\n\n</h3>" if lines else ""
 
@@ -359,6 +385,13 @@ def render(config, branch, snapshots):
                 badge_url = f"https://img.shields.io/badge/{urllib.parse.quote(badge_text, safe='')}-{repo['badge_color']}?style=flat"
                 badge = f'![{markdown(repo["display_name"])}]({badge_url})'
                 home_project = f'[{badge}]({metadata["html_url"]}) {logo}{star_label}'
+            if config.get("show_contribution_blocks", False):
+                bar = contribution_block_asset(snapshot)
+                label = html.escape(bar["label"], quote=True)
+                home_project += (f' <a href="{target}" title="{label}">'
+                                 f'<img src="{raw}{bar["path"]}?v={bar["version"]}" '
+                                 f'width="{bar["width"]}" height="{bar["height"]}" '
+                                 f'alt="{label}"></a>')
             lines.append(home_project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
@@ -441,6 +474,8 @@ def run(root, api, write=False, profile_branch=None):
     output_paths = [readme_path, details_path]
     if "own_stars" in config:
         output_paths.extend(root / path for path in OWN_STAR_ASSETS)
+    if config.get("show_contribution_blocks", False):
+        output_paths.extend(root / f'assets/contribution-blocks-{repo["anchor"]}.svg' for repo in config["repositories"])
     require(all(not path.is_symlink() and path.resolve().is_relative_to(root.resolve()) for path in output_paths), "Generated output paths must stay within the project and must not be symlinks")
     originals = {path: path.read_bytes() if path.exists() else None for path in output_paths}
     require(originals[readme_path] is not None, "README.md is missing")
@@ -452,13 +487,18 @@ def run(root, api, write=False, profile_branch=None):
     block, details = render(config, branch, snapshots)
     updated_readme = replace_block(readme, block)
     badge_changes = {}
+    if config.get("show_contribution_blocks", False):
+        for snapshot in snapshots:
+            bar = contribution_block_asset(snapshot)
+            if bar:
+                badge_changes[root / bar["path"]] = bar["svg"]
     if "own_stars" in config:
         include_forks = config["own_stars"]["include_forks"]
         total = owned_repository_stars(api, config["username"], include_forks)
         scope = "Public repository stars" if include_forks else "Public non-fork repository stars"
         target = github_url(config["username"]) + "?tab=repositories"
         width, badges = render_owned_star_badges(total)
-        badge_changes = {root / path: svg for path, svg in badges.items()}
+        badge_changes.update({root / path: svg for path, svg in badges.items()})
         raw = f"https://raw.githubusercontent.com/{config['profile_repository']}/{urllib.parse.quote(branch, safe='')}/"
         own_block = (f'<a href="{target}" title="{scope}"><picture>'
                      f'<source media="(prefers-color-scheme: dark)" srcset="{raw}{OWN_STAR_ASSETS[1]}?total={total}">'
