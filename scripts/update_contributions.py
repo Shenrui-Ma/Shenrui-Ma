@@ -350,7 +350,7 @@ def contribution_block_asset(snapshot):
                          f'<stop offset="0" stop-color="{highlight}"/>'
                          f'<stop offset="1" stop-color="{base}"/></linearGradient>')
         squares.append(f'<rect x="{2 + (i % 12) * 13}" y="{9 + (i // 12) * 13}" '
-                       f'width="10" height="10" fill="url(#cell-{i})" fill-opacity="0.22" '
+                       f'width="10" height="10" fill="url(#cell-{i})" fill-opacity="{0.12 + 0.48 * progress:.2f}" '
                        'stroke="#2da44e" stroke-opacity="1" stroke-width="1"/>')
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-label="{html.escape(label, quote=True)}" '
