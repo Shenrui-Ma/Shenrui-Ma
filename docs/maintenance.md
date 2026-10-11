@@ -239,3 +239,6 @@ Separate pixel bars from the preceding star annotation with exactly two
 non-breaking spaces. Cells progress from light to deeper green across the bar,
 and each cell has a small diagonal highlight gradient. Colors are decorative
 and do not indicate different contribution values; each square still counts once.
+
+Pixel cells use opaque solid-green outlines and a 22%-opacity gradient fill,
+keeping the interior light on both light and dark backgrounds.

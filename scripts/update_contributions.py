@@ -346,13 +346,12 @@ def contribution_block_asset(snapshot):
         rgb = tuple(round(a + (b - a) * progress) for a, b in zip((126, 231, 135), (45, 164, 78)))
         base = "#" + "".join(f"{channel:02x}" for channel in rgb)
         highlight = "#" + "".join(f"{round(channel + (255 - channel) * 0.22):02x}" for channel in rgb)
-        border = "#" + "".join(f"{round(channel * 0.72):02x}" for channel in rgb)
         gradients.append(f'<linearGradient id="cell-{i}" x1="0" y1="0" x2="1" y2="1">'
                          f'<stop offset="0" stop-color="{highlight}"/>'
                          f'<stop offset="1" stop-color="{base}"/></linearGradient>')
         squares.append(f'<rect x="{2 + (i % 12) * 13}" y="{9 + (i // 12) * 13}" '
-                       f'width="10" height="10" fill="url(#cell-{i})" '
-                       f'stroke="{border}" stroke-width="1"/>')
+                       f'width="10" height="10" fill="url(#cell-{i})" fill-opacity="0.22" '
+                       'stroke="#2da44e" stroke-opacity="1" stroke-width="1"/>')
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-label="{html.escape(label, quote=True)}" '
            f'shape-rendering="crispEdges"><title>{html.escape(label)}</title>'
