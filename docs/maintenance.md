@@ -234,3 +234,8 @@ at `assets/contribution-blocks-<anchor>.svg`; the update workflow stages them
 together. Twelve squares fit per row before wrapping to preserve legibility as
 counts grow. Project ordering, star display and the separate automatic-update
 gate are unchanged.
+
+Separate pixel bars from the preceding star annotation with exactly two
+non-breaking spaces. Cells progress from light to deeper green across the bar,
+and each cell has a small diagonal highlight gradient. Colors are decorative
+and do not indicate different contribution values; each square still counts once.
