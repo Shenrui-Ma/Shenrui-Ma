@@ -44,24 +44,28 @@ canvas. No part is cropped; the academic marks and text geometry are unchanged.
 Current display files are `closure-affiliations-marks-close.svg` and
 `closure-affiliations-wide-marks-close.svg`. Both academic marks and their white
 circular backdrops use an exact 1.5× scale (wide circle diameter about 61px).
-Centers are (188,200) and (188,490), preserving their vertical stack. Original
+Centers are (188,399) and (188,689), preserving their vertical stack. Original
 embedded image bytes and the feather mask remain unchanged. The wide portrait
 is translated to x=304 with its original scale. The compact portrait is fitted
 within the unchanged 1216×1088 canvas using translate(208,93.052632) and
 scale(0.828947368), avoiding clipping beside the marks.
 
-- `closure-affiliations-marks-close.svg` SHA-256: `1c11fb34fadb63083a008d3868e4b20943c28ddbb7834bd43747fc259154a6dc`.
+- `closure-affiliations-marks-close.svg` SHA-256: `0cef756ef2697eb964273afc2efbb3620ecb69f92eb949b17521690c4cae46bc`.
 
-- `closure-affiliations-wide-marks-close.svg` SHA-256: `2889584759c1a18ff192bd7d1e0d0d8909e8d07afdf25d260d2432cdb19e29dc`.
+- `closure-affiliations-wide-marks-close.svg` SHA-256: `b4ba1462983f13b992857a19490973d2c8cf70f740baef65331c4eb7cfb0f3e8`.
 
-The UCAS mark is centered at y=490, leaving a 23-source-unit gap
+The UCAS mark is centered at y=689, leaving a 23-source-unit gap
 (about 5px on the wide layout) between the two circular marks.
-The CASIA mark, portrait, logo scales and overall canvas are unchanged.
+The portrait, logo scales and overall canvas are unchanged.
 
 The wide portrait receives a further 96 source units of rightward translation
 (about 22px on desktop). The academic marks, portrait scale, feather mask and
 compact layout remain unchanged.
 
 Both academic marks now use 1.5× their original scale (75% of the preceding
-2× version), with centers at (188,200) and (188,490). Portrait
+2× version), with centers at (188,399) and (188,689). Portrait
 transforms and the containing canvases are unchanged.
+
+## Vertically centered academic marks
+
+The `academic-logos` group is translated down by 199 source units in both current display variants. Its two centers are (188,399) and (188,689), so the stack midpoint is (188,544), matching the portrait canvas midpoint. The wide display moves the pair down about 46 CSS pixels; the existing 5px gap, white circular backdrops, embedded image bytes, portrait geometry and feather mask are preserved.
