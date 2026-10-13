@@ -176,11 +176,11 @@ class FixtureTests(unittest.TestCase):
             for count in (5, 3, 2)
         ]
         width = u.contribution_block_width(snapshots)
-        self.assertEqual(width, 66)
+        self.assertEqual(width, 114)
         for snapshot, count in zip(snapshots, (5, 3, 2)):
             svg = ET.fromstring(u.contribution_block_asset(snapshot, width)["svg"])
             cells = svg.findall("{http://www.w3.org/2000/svg}rect")
-            self.assertEqual(svg.attrib["width"], "66")
+            self.assertEqual(svg.attrib["width"], "114")
             self.assertEqual(len(cells), count)
             self.assertEqual(cells[0].attrib["x"], "2")
 
