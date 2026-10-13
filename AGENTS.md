@@ -32,4 +32,4 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 - Show accepted contribution counts as green pixel blocks after each project’s stars; preserve the configured PR/commit counting units.
 - Keep contribution bars on equal-width canvases so their first cells align in the desktop layout; position the float before the row text to preserve row association when text wraps.
 - Render the transparent contribution bars inside `<picture>` with a source so GitHub does not add a rounded fallback background.
-- Reserve 58px of transparent space after the shared contribution canvas so the cells stay closer to their project labels than to the affiliation artwork.
+- Keep the shared contribution canvas at least 124px wide. New cells consume trailing transparent space before widening the canvas, preserving the approved column position and proximity to the project labels.

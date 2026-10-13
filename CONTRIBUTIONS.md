@@ -2,7 +2,7 @@
 
 <h3>
 
-- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~392k&nbsp;⭐)</sub> — [5 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
+- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~392k&nbsp;⭐)</sub> — [6 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~253k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
 - [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> <sub>(~37k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
 - [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
@@ -22,6 +22,8 @@ Merged PRs include all upstream target branches; each target branch is listed be
   - [Recorded merge commit `e491bbc1c69b`](https://github.com/openclaw/openclaw/commit/e491bbc1c69bf6ffd4eea99e8a90ea5fbd69ca51). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 - [#159755: fix: allow custom strings alongside tool parameter presets](https://github.com/openclaw/openclaw/pull/159755) — Merged into **main**.
   - [Recorded merge commit `eee6823c07ed`](https://github.com/openclaw/openclaw/commit/eee6823c07ed47fb2c6b9fbb59e1287e05cb425f). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
+- [#160403: fix\(exec\): preserve Unicode joiners in command output](https://github.com/openclaw/openclaw/pull/160403) — Merged into **main**.
+  - [Recorded merge commit `80bfadff7a95`](https://github.com/openclaw/openclaw/commit/80bfadff7a950f772822275d4b89b27d7e842916). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 - [#160599: docs: fix Bitwarden and password\-store recipe links](https://github.com/openclaw/openclaw/pull/160599) — Merged into **main**.
   - [Recorded merge commit `721efcefc0c7`](https://github.com/openclaw/openclaw/commit/721efcefc0c79af2ec7e2af21c47f283e8ee6601). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.
 - [#161731: improve\(build\): speed up declaration input checks](https://github.com/openclaw/openclaw/pull/161731) — Merged into **main**.

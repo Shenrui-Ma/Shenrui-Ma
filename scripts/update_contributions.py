@@ -328,8 +328,8 @@ def adopted_count(snapshot):
 
 def contribution_block_width(snapshots):
     width = max((min(len(s["merged"]) + adopted_count(s)[0], 12) * 13 + 1 for s in snapshots), default=0)
-    # Transparent trailing space pulls the right-floated cells toward their project labels.
-    return width + 58 if width else 0
+    # Keep the approved column position as new cells consume trailing transparent space.
+    return max(width, 124) if width else 0
 
 
 def contribution_block_asset(snapshot, min_width=0):
