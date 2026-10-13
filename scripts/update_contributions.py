@@ -384,7 +384,7 @@ def render(config, branch, snapshots):
         accepted = [(kind, number) for kind, number in (("merged", len(merged)), ("🍒picked", count)) if number]
         counts = [f"{number} {kind}" for kind, number in accepted]
         if counts:
-            raw = f"https://raw.githubusercontent.com/{urllib.parse.quote(profile, safe='/')}/{branch_path}/"
+            raw = f"https://raw.githubusercontent.com/{urllib.parse.quote(profile, safe='/')}/refs/heads/{branch_path}/"
             logo = f'<img src="{raw}{urllib.parse.quote(repo["logo"], safe="/")}" width="{config["logo_size"]}" height="{config["logo_size"]}" alt="{html.escape(repo["display_name"] + " logo", quote=True)}">'
             if "logo_dark" in repo:
                 logo = f'<picture><source media="(prefers-color-scheme: dark)" srcset="{raw}{urllib.parse.quote(repo["logo_dark"], safe="/")}">{logo}</picture>'
