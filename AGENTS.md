@@ -33,3 +33,4 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 - Keep contribution bars on equal-width canvases so their first cells align in the desktop layout; position the float before the row text to preserve row association when text wraps.
 - Render the transparent contribution bars inside `<picture>` with a source so GitHub does not add a rounded fallback background.
 - Keep the shared contribution canvas at least 124px wide. New cells consume trailing transparent space before widening the canvas, preserving the approved column position and proximity to the project labels.
+- Keep the contribution detail page concise: omit counting-policy prose and merge-method API caveats. For adopted entries, show the original PR, target branch, integration PR and landing commit links; keep full attribution excerpts in configuration for verification.

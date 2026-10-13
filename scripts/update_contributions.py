@@ -376,10 +376,7 @@ def render(config, branch, snapshots):
     branch_path = urllib.parse.quote(branch, safe="")
     lines, counted_lines = [], []
     block_width = contribution_block_width(snapshots)
-    units = "Adopted PRs count each original PR once."
-    if any(repo.get("adopted_unit") == "commits" for repo in config["repositories"]):
-        units += " Where explicitly configured, adopted commits count distinct verified landing commits instead; the original PR mappings remain listed below."
-    details = ["Historical accepted contributions by [" + markdown(config["username"]) + "](" + github_url(config["username"]) + ").", "", "Merged PRs include all upstream target branches; each target branch is listed below. Adopted contributions are accepted via cherry-pick or upstream integration into the upstream default branch. " + units + " A later direct merge takes precedence and excludes that source PR's adoption mapping. Later refactoring or reverts do not erase historical acceptance.", ""]
+    details = ["Historical accepted contributions by [" + markdown(config["username"]) + "](" + github_url(config["username"]) + ").", "", "Merged PRs list their target branches. Adopted contributions link to their upstream integration and landing commits.", ""]
     for snapshot in snapshots:
         repo, metadata = snapshot["config"], snapshot["metadata"]
         merged, adopted = snapshot["merged"], snapshot["adopted"]
@@ -421,19 +418,11 @@ def render(config, branch, snapshots):
             details.extend([f'- [#{number}: {markdown(pr["title"])}]({pr["html_url"]}) — Merged into **{markdown(pr["base"]["ref"])}**.'])
             commit = pr.get("merge_commit_sha")
             require(isinstance(commit, str) and SHA.fullmatch(commit), "Merged PR is missing its merge commit SHA")
-            details.append(f'  - [Recorded merge commit `{commit[:12]}`]({github_url(metadata["full_name"], "/commit/" + commit)}). GitHub confirms the merge; the API does not reliably distinguish merge, squash, and rebase methods.')
+            details.append(f'  - [Recorded merge commit `{commit[:12]}`]({github_url(metadata["full_name"], "/commit/" + commit)}).')
         for number, (pr, mapping) in sorted(adopted.items()):
-            details.extend([f'- [#{number}: {markdown(pr["title"])}]({pr["html_url"]}) — Adopted via cherry-pick or upstream integration.', f'  - [Upstream integration #{mapping["landing_pr"]}]({mapping["evidence_url"]}); verified in the upstream default branch **{markdown(metadata["default_branch"])}**.'])
+            details.append(f'- [#{number}: {markdown(pr["title"])}]({pr["html_url"]}) — Adopted into **{markdown(metadata["default_branch"])}** via [#{mapping["landing_pr"]}]({mapping["evidence_url"]}).')
             commits = ", ".join(f'[`{sha[:12]}`]({github_url(metadata["full_name"], "/commit/" + sha)})' for sha in mapping["landing_commits"])
-            details.append(f"  - Landing commits: {commits}.")
-            for record in mapping["reviewed_evidence"]:
-                if record["kind"] == "commit_message":
-                    url = github_url(metadata["full_name"], "/commit/" + record["commit"])
-                else:
-                    url = mapping["evidence_url"] + (f'#issuecomment-{record["number"]}' if record["kind"] == "issue_comment" else "")
-                for key, label in (("source_excerpt", "Source evidence"), ("attribution_excerpt", "Attribution evidence")):
-                    if key in record:
-                        details.append(f'  - [{label}]({url}): “{markdown(record[key])}”')
+            details.append(f"  - Commits: {commits}.")
         details.append("")
     summary = render_contribution_list(counted_lines)
     details = ["# 📜 Contributions", "", summary, "", *details]
