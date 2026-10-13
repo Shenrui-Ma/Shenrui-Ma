@@ -326,7 +326,11 @@ def adopted_count(snapshot):
     return len(snapshot["adopted"]), "PR"
 
 
-def contribution_block_asset(snapshot):
+def contribution_block_width(snapshots):
+    return max((min(len(s["merged"]) + adopted_count(s)[0], 12) * 13 + 1 for s in snapshots), default=0)
+
+
+def contribution_block_asset(snapshot, min_width=0):
     merged = len(snapshot["merged"])
     picked, unit = adopted_count(snapshot)
     total = merged + picked
@@ -339,7 +343,7 @@ def contribution_block_asset(snapshot):
         labels.append(f"{picked} adopted {unit}{'s' if picked != 1 else ''}")
     label = snapshot["config"]["display_name"] + ": " + ", ".join(labels)
     columns = min(total, 12)
-    width, height = columns * 13 + 1, 20 + ((total - 1) // 12) * 13
+    width, height = max(min_width, columns * 13 + 1), 20 + ((total - 1) // 12) * 13
     gradients, squares = [], []
     for i in range(total):
         progress = i / (total - 1) if total > 1 else 0.5
@@ -369,6 +373,7 @@ def render(config, branch, snapshots):
     profile = config["profile_repository"]
     branch_path = urllib.parse.quote(branch, safe="")
     lines, counted_lines = [], []
+    block_width = contribution_block_width(snapshots)
     units = "Adopted PRs count each original PR once."
     if any(repo.get("adopted_unit") == "commits" for repo in config["repositories"]):
         units += " Where explicitly configured, adopted commits count distinct verified landing commits instead; the original PR mappings remain listed below."
@@ -396,12 +401,12 @@ def render(config, branch, snapshots):
                 badge = f'![{markdown(repo["display_name"])}]({badge_url})'
                 home_project = f'[{badge}]({metadata["html_url"]}) {logo}{star_label}'
             if config.get("show_contribution_blocks", False):
-                bar = contribution_block_asset(snapshot)
+                bar = contribution_block_asset(snapshot, block_width)
                 label = html.escape(bar["label"], quote=True)
-                home_project += (f'&nbsp;&nbsp;<a href="{target}" title="{label}">'
-                                 f'<img src="{raw}{bar["path"]}?v={bar["version"]}" '
+                home_project = (f'<a href="{target}" title="{label}">'
+                                 f'<img align="right" src="{raw}{bar["path"]}?v={bar["version"]}" '
                                  f'width="{bar["width"]}" height="{bar["height"]}" '
-                                 f'alt="{label}"></a>')
+                                 f'alt="{label}"></a>' + home_project)
             lines.append(home_project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
@@ -498,8 +503,9 @@ def run(root, api, write=False, profile_branch=None):
     updated_readme = replace_block(readme, block)
     badge_changes = {}
     if config.get("show_contribution_blocks", False):
+        block_width = contribution_block_width(snapshots)
         for snapshot in snapshots:
-            bar = contribution_block_asset(snapshot)
+            bar = contribution_block_asset(snapshot, block_width)
             if bar:
                 badge_changes[root / bar["path"]] = bar["svg"]
     if "own_stars" in config:

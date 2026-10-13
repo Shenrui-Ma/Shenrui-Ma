@@ -169,6 +169,21 @@ class FixtureTests(unittest.TestCase):
                 self.run_generator(FakeAPI([pr(i) for i in range(1, count + 1)]))
                 self.assertEqual(before, (asset.read_bytes(), asset.stat().st_mtime_ns))
 
+    def test_pixel_bars_share_canvas_without_padding_the_count(self):
+        snapshots = [
+            {"config": {"display_name": "Project", "anchor": "project"},
+             "merged": {i: pr(i) for i in range(count)}, "adopted": {}}
+            for count in (5, 3, 2)
+        ]
+        width = u.contribution_block_width(snapshots)
+        self.assertEqual(width, 66)
+        for snapshot, count in zip(snapshots, (5, 3, 2)):
+            svg = ET.fromstring(u.contribution_block_asset(snapshot, width)["svg"])
+            cells = svg.findall("{http://www.w3.org/2000/svg}rect")
+            self.assertEqual(svg.attrib["width"], "66")
+            self.assertEqual(len(cells), count)
+            self.assertEqual(cells[0].attrib["x"], "2")
+
     def test_pixel_block_assets_reject_symlinks_before_network(self):
         self.config["show_contribution_blocks"] = True
         target = self.root / "other.svg"
