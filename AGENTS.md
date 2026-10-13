@@ -31,3 +31,4 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 - Omit the extra per-project "adopted commits from source PRs" sentence; preserve overview counts and evidence.
 - Show accepted contribution counts as green pixel blocks after each project’s stars; preserve the configured PR/commit counting units.
 - Keep contribution bars on equal-width canvases so their first cells align in the desktop layout; position the float before the row text to preserve row association when text wraps.
+- Render the transparent contribution bars inside `<picture>` with a source so GitHub does not add a rounded fallback background.

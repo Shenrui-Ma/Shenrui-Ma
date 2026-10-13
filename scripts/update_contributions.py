@@ -403,10 +403,13 @@ def render(config, branch, snapshots):
             if config.get("show_contribution_blocks", False):
                 bar = contribution_block_asset(snapshot, block_width)
                 label = html.escape(bar["label"], quote=True)
+                image_url = f'{raw}{bar["path"]}?v={bar["version"]}'
+                # GitHub keeps picture sources transparent instead of adding an image fallback background.
                 home_project = (f'<a href="{target}" title="{label}">'
-                                 f'<img align="right" src="{raw}{bar["path"]}?v={bar["version"]}" '
+                                 f'<picture><source srcset="{image_url}">'
+                                 f'<img align="right" src="{image_url}" '
                                  f'width="{bar["width"]}" height="{bar["height"]}" '
-                                 f'alt="{label}"></a>' + home_project)
+                                 f'alt="{label}"></picture></a>' + home_project)
             lines.append(home_project)
             counted_lines.append(f'{project} — [{" · ".join(counts)}]({target})')
         details.extend([f'<a id="{repo["anchor"]}"></a>', f'## [{markdown(repo["display_name"])}]({metadata["html_url"]})', ""])
