@@ -43,6 +43,13 @@
       "anchor": "asu-skills",
       "logo": "assets/logos/asu-skills.svg",
       "badge_color": "6265A8"
+    },
+    {
+      "repository": "morluto/rea",
+      "display_name": "REA",
+      "anchor": "rea",
+      "logo": "assets/logos/rea.svg",
+      "badge_color": "20252B"
     }
   ],
   "confirmed_adoptions": [

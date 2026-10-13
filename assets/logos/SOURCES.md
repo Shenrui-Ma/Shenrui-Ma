@@ -270,3 +270,38 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## REA
+
+- Repository: [morluto/rea](https://github.com/morluto/rea).
+- Local file: `rea.svg`; official website favicon, displayed at 20 × 20 CSS pixels.
+- [Pinned source](https://github.com/morluto/rea/blob/68ecdcd7a130806a03067fbfcce5ee90c70b968f/website/public/assets/favicon.svg).
+- Source commit: `68ecdcd7a130806a03067fbfcce5ee90c70b968f`.
+- Git blob SHA: `78512ef9817579fe2ea9127da49bdb6b869be49e`.
+- SHA-256: `08a51733fcb21788e8a2c554e694760c385f3aa89a62a1407108839428b724ae`.
+- Processing: none; original SVG bytes, shape and colors preserved.
+- [Repository license](https://github.com/morluto/rea/blob/68ecdcd7a130806a03067fbfcce5ee90c70b968f/LICENSE). The mark identifies the upstream project.
+
+```text
+MIT License
+
+Copyright (c) 2026 morluto
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

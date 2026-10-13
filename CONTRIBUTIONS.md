@@ -4,6 +4,7 @@
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~392k&nbsp;⭐)</sub> — [7 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~253k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [REA](https://github.com/morluto/rea) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/rea.svg" width="20" height="20" alt="REA logo"> <sub>(~187k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#rea)
 - [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> <sub>(~37k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
 - [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~6k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
@@ -40,6 +41,12 @@ Merged PRs list their target branches. Adopted contributions link to their upstr
   - Commits: [`93c5856bd55d`](https://github.com/NousResearch/hermes-agent/commit/93c5856bd55d757d84b58066e53438ed43a29f82).
 - [#107337: fix\(codex\): target hermes\-tools in Kanban worker overrides](https://github.com/NousResearch/hermes-agent/pull/107337) — Adopted into **main** via [#112265](https://github.com/NousResearch/hermes-agent/pull/112265).
   - Commits: [`6973f2622d7c`](https://github.com/NousResearch/hermes-agent/commit/6973f2622d7c9bf6caee7d3e0c6777d54f0f64c9), [`4521e04add66`](https://github.com/NousResearch/hermes-agent/commit/4521e04add661eb4f3628be2ebbaa7b4ad5abae7).
+
+<a id="rea"></a>
+## [REA](https://github.com/morluto/rea)
+
+- [#2770: fix\(reference\): preserve directory intent when resolving source imports](https://github.com/morluto/rea/pull/2770) — Merged into **main**.
+  - [Recorded merge commit `68ecdcd7a130`](https://github.com/morluto/rea/commit/68ecdcd7a130806a03067fbfcce5ee90c70b968f).
 
 <a id="pnpm"></a>
 ## [pnpm](https://github.com/pnpm/pnpm)
