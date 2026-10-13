@@ -405,7 +405,7 @@ def render(config, branch, snapshots):
             if config.get("show_contribution_blocks", False):
                 bar = contribution_block_asset(snapshot, block_width)
                 label = html.escape(bar["label"], quote=True)
-                image_url = f'{raw}{bar["path"]}?v={bar["version"]}'
+                image_url = f'{raw}{bar["path"]}?v={bar["version"]}-{bar["width"]}'
                 # GitHub keeps picture sources transparent instead of adding an image fallback background.
                 home_project = (f'<a href="{target}" title="{label}">'
                                  f'<picture><source srcset="{image_url}">'
