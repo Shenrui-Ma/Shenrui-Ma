@@ -6,7 +6,7 @@
 <!-- own-stars:end -->
 📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
 
-<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-marks-close.svg?v=0cef756ef269" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-marks-close.svg?v=0cef756ef269" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-wide-marks-close.svg?v=b4ba1462983f" width="460" hspace="0" alt="CASIA and UCAS logos beside Closure"></picture>
+<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-marks-close.svg?v=60774b241347" width="104" height="174"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-marks-close.svg?v=60774b241347" width="128" height="214"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/closure-affiliations-wide-marks-close.svg?v=21e55231d0d7" width="460" hspace="0" alt="Closure with academic logos and a photo with a cat below"></picture>
 
 ### [📜 Contributions](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md)
 

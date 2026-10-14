@@ -50,9 +50,9 @@ is translated to x=304 with its original scale. The compact portrait is fitted
 within the unchanged 1216×1088 canvas using translate(208,93.052632) and
 scale(0.828947368), avoiding clipping beside the marks.
 
-- `closure-affiliations-marks-close.svg` SHA-256: `0cef756ef2697eb964273afc2efbb3620ecb69f92eb949b17521690c4cae46bc`.
+- `closure-affiliations-marks-close.svg` SHA-256: `60774b2413470c990e196e3241505511f91e149ce1f06ad0aead55ab90c60bd5`.
 
-- `closure-affiliations-wide-marks-close.svg` SHA-256: `b4ba1462983f13b992857a19490973d2c8cf70f740baef65331c4eb7cfb0f3e8`.
+- `closure-affiliations-wide-marks-close.svg` SHA-256: `21e55231d0d71fed595251c3b44a4a495337779687c67bc5c9098ea9090537a6`.
 
 The UCAS mark is centered at y=689, leaving a 23-source-unit gap
 (about 5px on the wide layout) between the two circular marks.
@@ -69,3 +69,11 @@ transforms and the containing canvases are unchanged.
 ## Vertically centered academic marks
 
 The `academic-logos` group is translated down by 199 source units in both current display variants. Its two centers are (188,399) and (188,689), so the stack midpoint is (188,544), matching the portrait canvas midpoint. The wide display moves the pair down about 46 CSS pixels; the existing 5px gap, white circular backdrops, embedded image bytes, portrait geometry and feather mask are preserved.
+
+## Personal photo below the portrait
+
+- Local file: `profile-photo.png`, supplied by the profile owner; original PNG bytes preserved.
+- Dimensions: 1341 × 1173.
+- SHA-256: `bef6935112510b092886f27cd8db487a7e62e8b0a2f142c1b0b8d9e5785dde8a`.
+- The photo is embedded below the existing portrait in both current composite SVGs, keeping the original aspect ratio and horizontal alignment. At desktop size it is about 280px wide, with a 15px gap below the original illustration canvas and a 15px corner radius. The compact version uses the same width as its fitted portrait.
+- Rounded corners use an SVG clip, with no pixel edits or resampling of the embedded original. Only the outer canvas extends downward; the portrait, feather mask and logo positions remain unchanged.
