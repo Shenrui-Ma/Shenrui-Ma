@@ -50,9 +50,9 @@ is translated to x=304 with its original scale. The compact portrait is fitted
 within the unchanged 1216×1088 canvas using translate(208,93.052632) and
 scale(0.828947368), avoiding clipping beside the marks.
 
-- `closure-affiliations-marks-close.svg` SHA-256: `60774b2413470c990e196e3241505511f91e149ce1f06ad0aead55ab90c60bd5`.
+- `closure-affiliations-marks-close.svg` SHA-256: `2b5ece5c26df8a62bc8915bd6e7694c4b56384cadb31c34c49e557ef90813a91`.
 
-- `closure-affiliations-wide-marks-close.svg` SHA-256: `21e55231d0d71fed595251c3b44a4a495337779687c67bc5c9098ea9090537a6`.
+- `closure-affiliations-wide-marks-close.svg` SHA-256: `a300f55445b73b94673a5737607669d4b365967209905a43ad50eb6c61f81b2b`.
 
 The UCAS mark is centered at y=689, leaving a 23-source-unit gap
 (about 5px on the wide layout) between the two circular marks.
@@ -75,5 +75,5 @@ The `academic-logos` group is translated down by 199 source units in both curren
 - Local file: `profile-photo.png`, supplied by the profile owner; original PNG bytes preserved.
 - Dimensions: 1341 × 1173.
 - SHA-256: `bef6935112510b092886f27cd8db487a7e62e8b0a2f142c1b0b8d9e5785dde8a`.
-- The photo is embedded below the existing portrait in both current composite SVGs, keeping the original aspect ratio and horizontal alignment. At desktop size it is about 280px wide, with a 15px gap below the original illustration canvas and a 15px corner radius. The compact version uses the same width as its fitted portrait.
+- The photo is embedded below the existing portrait in both current composite SVGs, keeping the original aspect ratio and horizontal alignment. The photo is centered beneath the portrait at 85% of its width: about 238px on desktop, with a 15px gap below the original illustration canvas and a 12.5px corner radius. The compact variant uses the same proportional sizing.
 - Rounded corners use an SVG clip, with no pixel edits or resampling of the embedded original. Only the outer canvas extends downward; the portrait, feather mask and logo positions remain unchanged.
