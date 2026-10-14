@@ -34,3 +34,4 @@ The aim is to avoid automatic upstream timeline entries caused by profile update
 - Render the transparent contribution bars inside `<picture>` with a source so GitHub does not add a rounded fallback background.
 - Keep the shared contribution canvas at least 124px wide. New cells consume trailing transparent space before widening the canvas, preserving the approved column position and proximity to the project labels.
 - Keep the contribution detail page concise: omit counting-policy prose and merge-method API caveats. For adopted entries, show the original PR, target branch, integration PR and landing commit links; keep full attribution excerpts in configuration for verification.
+- Pin the composite portrait/photo image URLs to the commit containing the verified artwork, avoiding stale mutable-branch image responses. When changing this artwork, publish its asset revision and then update the README image reference to that revision.
