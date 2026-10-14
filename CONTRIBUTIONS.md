@@ -3,10 +3,10 @@
 <h3>
 
 - [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~392k&nbsp;⭐)</sub> — [7 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~253k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
-- [REA](https://github.com/morluto/rea) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/rea.svg" width="20" height="20" alt="REA logo"> <sub>(~199k&nbsp;⭐)</sub> — [1 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#rea)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~254k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [REA](https://github.com/morluto/rea) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/rea.svg" width="20" height="20" alt="REA logo"> <sub>(~212k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#rea)
 - [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> <sub>(~37k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
-- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [3 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
+- [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~22k&nbsp;⭐)</sub> — [4 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~6k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
 - …
 
@@ -47,6 +47,8 @@ Merged PRs list their target branches. Adopted contributions link to their upstr
 
 - [#2770: fix\(reference\): preserve directory intent when resolving source imports](https://github.com/morluto/rea/pull/2770) — Merged into **main**.
   - [Recorded merge commit `68ecdcd7a130`](https://github.com/morluto/rea/commit/68ecdcd7a130806a03067fbfcce5ee90c70b968f).
+- [#2962: perf\(javascript\): defer ambiguity expansion in version comparisons](https://github.com/morluto/rea/pull/2962) — Merged into **main**.
+  - [Recorded merge commit `388b907c9231`](https://github.com/morluto/rea/commit/388b907c923133096a3387272367cbfb04ff1c04).
 
 <a id="pnpm"></a>
 ## [pnpm](https://github.com/pnpm/pnpm)
@@ -63,6 +65,8 @@ Merged PRs list their target branches. Adopted contributions link to their upstr
   - [Recorded merge commit `7dedb5bdac76`](https://github.com/steipete/CodexBar/commit/7dedb5bdac765bbe7f63371eee5848a848496196).
 - [#4224: fix\(settings\): preserve pending config on quit](https://github.com/steipete/CodexBar/pull/4224) — Merged into **main**.
   - [Recorded merge commit `ab32496d3c1f`](https://github.com/steipete/CodexBar/commit/ab32496d3c1f861981aa1a19aee2f933204f9bb9).
+- [#4472: fix\(cli\): mark incomplete project cost reports](https://github.com/steipete/CodexBar/pull/4472) — Merged into **main**.
+  - [Recorded merge commit `8ec6033461e4`](https://github.com/steipete/CodexBar/commit/8ec6033461e4717dd7501f922a93584ad6a0f713).
 - [#4474: fix\(sessions\): preserve macOS CLI sessions with app paths in prompts](https://github.com/steipete/CodexBar/pull/4474) — Merged into **main**.
   - [Recorded merge commit `d74a0f9f1d91`](https://github.com/steipete/CodexBar/commit/d74a0f9f1d915aec99da7531a13d9acfe3739849).
 
