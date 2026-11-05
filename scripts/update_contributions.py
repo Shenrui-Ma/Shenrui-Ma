@@ -87,7 +87,8 @@ def validate_config(config, root):
     require(isinstance(config["confirmed_adoptions"], list), "confirmed_adoptions must be a list")
     seen = set()
     for adoption in config["confirmed_adoptions"]:
-        exact_keys(adoption, ("repository", "source_pr", "landing_pr", "evidence_url", "landing_commits", "reviewed_evidence"))
+        exact_keys(adoption, ("repository", "source_pr", "landing_pr", "evidence_url", "landing_commits", "reviewed_evidence"), ("adopted_unit",))
+        require(adoption.get("adopted_unit", "prs") in ("prs", "commits"), "adopted_unit must be prs or commits")
         repository = text(adoption["repository"], "adoption repository").lower()
         require(repository in repositories, "Adoption repository is outside the whitelist")
         require(positive_int(adoption["source_pr"]) and positive_int(adoption["landing_pr"]), "Invalid adoption PR number")
@@ -321,9 +322,21 @@ def github_url(repository, suffix=""):
 
 
 def adopted_count(snapshot):
-    if snapshot["config"].get("adopted_unit", "prs") == "commits":
-        return len({sha for _, mapping in snapshot["adopted"].values() for sha in mapping["landing_commits"]}), "commit"
-    return len(snapshot["adopted"]), "PR"
+    default_unit = snapshot["config"].get("adopted_unit", "prs")
+    commits, units = set(), set()
+    prs = 0
+    for _, mapping in snapshot["adopted"].values():
+        unit = mapping.get("adopted_unit", default_unit)
+        units.add(unit)
+        if unit == "commits":
+            commits.update(mapping["landing_commits"])
+        else:
+            prs += 1
+    if len(units) > 1:
+        label = "contribution"
+    else:
+        label = "commit" if (units or {default_unit}) == {"commits"} else "PR"
+    return len(commits) + prs, label
 
 
 def contribution_block_width(snapshots):

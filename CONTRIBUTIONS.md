@@ -2,9 +2,9 @@
 
 <h3>
 
-- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~393k&nbsp;⭐)</sub> — [9 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
-- [REA](https://github.com/morluto/rea) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/rea.svg" width="20" height="20" alt="REA logo"> <sub>(~374k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#rea)
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~257k&nbsp;⭐)</sub> — [3 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
+- [REA](https://github.com/morluto/rea) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/rea.svg" width="20" height="20" alt="REA logo"> <sub>(~433k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#rea)
+- [OpenClaw](https://github.com/openclaw/openclaw) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/openclaw.png" width="20" height="20" alt="OpenClaw logo"> <sub>(~394k&nbsp;⭐)</sub> — [9 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#openclaw)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/hermes-agent.svg" width="20" height="20" alt="Hermes Agent logo"></picture> <sub>(~261k&nbsp;⭐)</sub> — [4 🍒picked](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#hermes-agent)
 - [pnpm](https://github.com/pnpm/pnpm) <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/pnpm-dark.svg"><img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/pnpm.svg" width="20" height="20" alt="pnpm logo"></picture> <sub>(~37k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#pnpm)
 - [CodexBar](https://github.com/steipete/CodexBar) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/codexbar.png" width="20" height="20" alt="CodexBar logo"> <sub>(~23k&nbsp;⭐)</sub> — [4 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#codexbar)
 - [ASu\-skills](https://github.com/Hisn00w/ASu-skills) <img src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/refs/heads/main/assets/logos/asu-skills.svg" width="20" height="20" alt="ASu-skills logo"> <sub>(~6k&nbsp;⭐)</sub> — [2 merged](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md#asu-skills)
@@ -15,6 +15,14 @@
 Historical accepted contributions by [Shenrui\-Ma](https://github.com/Shenrui-Ma).
 
 Merged PRs list their target branches. Adopted contributions link to their upstream integration and landing commits.
+
+<a id="rea"></a>
+## [REA](https://github.com/morluto/rea)
+
+- [#2770: fix\(reference\): preserve directory intent when resolving source imports](https://github.com/morluto/rea/pull/2770) — Merged into **main**.
+  - [Recorded merge commit `68ecdcd7a130`](https://github.com/morluto/rea/commit/68ecdcd7a130806a03067fbfcce5ee90c70b968f).
+- [#2962: perf\(javascript\): defer ambiguity expansion in version comparisons](https://github.com/morluto/rea/pull/2962) — Merged into **main**.
+  - [Recorded merge commit `388b907c9231`](https://github.com/morluto/rea/commit/388b907c923133096a3387272367cbfb04ff1c04).
 
 <a id="openclaw"></a>
 ## [OpenClaw](https://github.com/openclaw/openclaw)
@@ -38,17 +46,11 @@ Merged PRs list their target branches. Adopted contributions link to their upstr
 - [#169119: fix\(openai\): preserve text and image order in tool results](https://github.com/openclaw/openclaw/pull/169119) — Merged into **main**.
   - [Recorded merge commit `efd2515b5c50`](https://github.com/openclaw/openclaw/commit/efd2515b5c50c94e4c90261bb59d351efcb947f9).
 
-<a id="rea"></a>
-## [REA](https://github.com/morluto/rea)
-
-- [#2770: fix\(reference\): preserve directory intent when resolving source imports](https://github.com/morluto/rea/pull/2770) — Merged into **main**.
-  - [Recorded merge commit `68ecdcd7a130`](https://github.com/morluto/rea/commit/68ecdcd7a130806a03067fbfcce5ee90c70b968f).
-- [#2962: perf\(javascript\): defer ambiguity expansion in version comparisons](https://github.com/morluto/rea/pull/2962) — Merged into **main**.
-  - [Recorded merge commit `388b907c9231`](https://github.com/morluto/rea/commit/388b907c923133096a3387272367cbfb04ff1c04).
-
 <a id="hermes-agent"></a>
 ## [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 
+- [#105193: docs\(stt\): clarify language inheritance and auto\-detection](https://github.com/NousResearch/hermes-agent/pull/105193) — Adopted into **main** via [#149312](https://github.com/NousResearch/hermes-agent/pull/149312).
+  - Commits: [`961e275288a7`](https://github.com/NousResearch/hermes-agent/commit/961e275288a7d441b9cbf6c498d25af2aba794df), [`bb8b3816eef9`](https://github.com/NousResearch/hermes-agent/commit/bb8b3816eef9f2dc49d77ee49643d9249bc01b00), [`1952b3d1bb2e`](https://github.com/NousResearch/hermes-agent/commit/1952b3d1bb2e32b5139905653e3a7260efd102ca).
 - [#105828: fix\(config\): preserve explicit null settings when stripping defaults](https://github.com/NousResearch/hermes-agent/pull/105828) — Adopted into **main** via [#120343](https://github.com/NousResearch/hermes-agent/pull/120343).
   - Commits: [`93c5856bd55d`](https://github.com/NousResearch/hermes-agent/commit/93c5856bd55d757d84b58066e53438ed43a29f82).
 - [#107337: fix\(codex\): target hermes\-tools in Kanban worker overrides](https://github.com/NousResearch/hermes-agent/pull/107337) — Adopted into **main** via [#112265](https://github.com/NousResearch/hermes-agent/pull/112265).

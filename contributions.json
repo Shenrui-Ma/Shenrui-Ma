@@ -55,6 +55,27 @@
   "confirmed_adoptions": [
     {
       "repository": "NousResearch/hermes-agent",
+      "source_pr": 105193,
+      "adopted_unit": "prs",
+      "landing_pr": 149312,
+      "evidence_url": "https://github.com/NousResearch/hermes-agent/pull/149312",
+      "landing_commits": [
+        "961e275288a7d441b9cbf6c498d25af2aba794df",
+        "bb8b3816eef9f2dc49d77ee49643d9249bc01b00",
+        "1952b3d1bb2e32b5139905653e3a7260efd102ca"
+      ],
+      "reviewed_evidence": [
+        {
+          "kind": "pull_body",
+          "number": 149312,
+          "sha256": "a3b0350926a25b90e2d0efe110977fa38a4026226df4a1d5058b52a62c941aed",
+          "source_excerpt": "Salvage of #105193 by @Shenrui-Ma. All three of their commits are kept under their name, rebased onto main;",
+          "attribution_excerpt": "@Shenrui-Ma"
+        }
+      ]
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
       "source_pr": 107337,
       "landing_pr": 112265,
       "evidence_url": "https://github.com/NousResearch/hermes-agent/pull/112265",

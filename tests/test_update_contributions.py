@@ -294,6 +294,44 @@ class FixtureTests(unittest.TestCase):
         self.assertIn("1 merged · 1 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
         self.assertNotIn("1 adopted commit from 1 source PR", result[self.root / "CONTRIBUTIONS.md"])
 
+    def test_pr_override_counts_once_and_keeps_every_landing_commit(self):
+        other = mapping()
+        other.update(source_pr=9, adopted_unit="prs", landing_commits=[c * 40 for c in "def"])
+        self.config = configuration([mapping(), other])
+        self.config["repositories"][0]["adopted_unit"] = "commits"
+        self.config["show_contribution_blocks"] = True
+        api = FakeAPI(adoptions=True)
+        api.data[f"/repos/{REPO}/pulls/9"] = pr(9, False)
+        for sha in other["landing_commits"]:
+            api.data[f"/repos/{REPO}/commits/{sha}"] = {"sha": sha, "author": {"login": "Person"}}
+            api.data[f"/repos/{REPO}/compare/{sha}...{HEAD}"] = dict(api.data[f"/repos/{REPO}/compare/{SHA1}...{HEAD}"], base_commit={"sha": sha}, merge_base_commit={"sha": sha})
+        result = self.run_generator(api)
+        self.assertIn("3 🍒picked]", result[self.root / "CONTRIBUTIONS.md"])
+        for sha in other["landing_commits"]:
+            self.assertIn("/commit/" + sha, result[self.root / "CONTRIBUTIONS.md"])
+        svg = ET.fromstring(result[self.root / "assets/contribution-blocks-project.svg"])
+        self.assertEqual(len(svg.findall("{http://www.w3.org/2000/svg}rect")), 3)
+        self.assertEqual(svg.attrib["aria-label"], "Project: 3 adopted contributions")
+
+    def test_pr_override_still_rejects_unlanded_commit(self):
+        adoption = mapping()
+        adoption["adopted_unit"] = "prs"
+        self.config = configuration([adoption])
+        self.config["repositories"][0]["adopted_unit"] = "commits"
+        api = FakeAPI(adoptions=True)
+        api.data[f"/repos/{REPO}/compare/{SHA2}...{HEAD}"]["status"] = "diverged"
+        with self.assertRaises(u.VerificationError):
+            self.run_generator(api)
+        self.assert_unchanged()
+
+    def test_invalid_adoption_unit_preserves_previous_files(self):
+        adoption = mapping()
+        adoption["adopted_unit"] = "invalid"
+        self.config = configuration([adoption])
+        with self.assertRaises(u.VerificationError):
+            self.run_generator(FakeAPI(adoptions=True))
+        self.assert_unchanged()
+
     def test_later_merge_deduplicates_and_handles_search_index_lag(self):
         self.config = configuration([mapping()])
         for indexed in (False, True):
