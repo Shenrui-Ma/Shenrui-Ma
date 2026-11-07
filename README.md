@@ -6,7 +6,7 @@
 <!-- own-stars:end -->
 📍 CASIA (UCAS) | 🚀 Video Gen | 🤖 Agent Evolution</h3>
 
-<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1a79dcac569238410bf5e72716e934aabc22caa7/assets/closure-affiliations-marks-close.svg" width="104" height="163"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1a79dcac569238410bf5e72716e934aabc22caa7/assets/closure-affiliations-marks-close.svg" width="128" height="200"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1a79dcac569238410bf5e72716e934aabc22caa7/assets/closure-affiliations-wide-marks-close.svg" width="460" hspace="0" alt="Closure with academic logos and a photo with a cat below"></picture>
+<picture><source media="(max-width: 480px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1b044a5efa5257db059676c42c8315447102fe9f/assets/closure-affiliations-marks-close.svg" width="104" height="93"><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1b044a5efa5257db059676c42c8315447102fe9f/assets/closure-affiliations-marks-close.svg" width="128" height="115"><img align="right" src="https://raw.githubusercontent.com/Shenrui-Ma/Shenrui-Ma/1b044a5efa5257db059676c42c8315447102fe9f/assets/closure-affiliations-wide-marks-close.svg" width="460" hspace="0" alt="Closure with academic logos"></picture>
 
 ### [📜 Contributions](https://github.com/Shenrui-Ma/Shenrui-Ma/blob/main/CONTRIBUTIONS.md)
 
